@@ -16,23 +16,22 @@
   <meta name="author" content="xiaolanchong">
   <meta name="keywords" content="小懒虫&amp; 博客">
   
-    <meta name="description" content="1、首先什么是虚拟 DOM?虚拟 DOM 就是一个普通的 JS 对象，用来描述真实的 DOM 结构的对象 2、什么事 Diff 算法？diff 算法是用来比较虚拟节点、并返回一个 patch 对象，用来存储新旧节点不同的地方简单来说：diff 的过程就是调用 patch 函数，比较新旧节点，边比较边给 DOM 打补丁  那么 diff 算法有什么特征呢？   比较只会发生在同层级进行，不会跨层级比">
+    <meta name="description" content="Vue 组件间的通讯方式             Vue 是单项数据流             父组件向子组件传递 props父组件通过 props 向子组件传递数据，子组件通过 $emit 和父组件通信  父组件  123456789101112131415&lt;script setup&gt;import &amp;#123; ref &amp;#125; from &amp;#x27;vue&amp;#x27;;impo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Diff算法">
-<meta property="og:url" content="https://xwxlc.github.io/xiaolanchong.githug.io/2023/04/07/Diff%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:title" content="Vue组件间的通讯方式">
+<meta property="og:url" content="https://xwxlc.github.io/xiaolanchong.githug.io/2023/04/08/Vue%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E9%80%9A%E8%AE%AF%E6%96%B9%E5%BC%8F/index.html">
 <meta property="og:site_name" content="小懒虫&amp;">
-<meta property="og:description" content="1、首先什么是虚拟 DOM?虚拟 DOM 就是一个普通的 JS 对象，用来描述真实的 DOM 结构的对象 2、什么事 Diff 算法？diff 算法是用来比较虚拟节点、并返回一个 patch 对象，用来存储新旧节点不同的地方简单来说：diff 的过程就是调用 patch 函数，比较新旧节点，边比较边给 DOM 打补丁  那么 diff 算法有什么特征呢？   比较只会发生在同层级进行，不会跨层级比">
+<meta property="og:description" content="Vue 组件间的通讯方式             Vue 是单项数据流             父组件向子组件传递 props父组件通过 props 向子组件传递数据，子组件通过 $emit 和父组件通信  父组件  123456789101112131415&lt;script setup&gt;import &amp;#123; ref &amp;#125; from &amp;#x27;vue&amp;#x27;;impo">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-04-07T13:00:00.000Z">
-<meta property="article:modified_time" content="2023-04-08T04:44:32.782Z">
+<meta property="article:published_time" content="2023-04-08T04:44:03.000Z">
+<meta property="article:modified_time" content="2023-04-08T08:09:34.770Z">
 <meta property="article:author" content="xiaolanchong">
 <meta property="article:tag" content="Vue">
-<meta property="article:tag" content="Diff">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Diff算法 - 小懒虫&amp;</title>
+  <title>Vue组件间的通讯方式 - 小懒虫&amp;</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -252,7 +251,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Diff算法"></span>
+            <span id="subtitle" data-typed-text="Vue组件间的通讯方式"></span>
           
         </div>
 
@@ -269,7 +268,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          942 字
+          3.5k 字
         
       </span>
     
@@ -281,7 +280,7 @@
         
         
           <!-- compatible with older versions-->
-          8 分钟
+          29 分钟
         
       </span>
     
@@ -327,67 +326,80 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Diff算法</h1>
+            <h1 style="display: none">Vue组件间的通讯方式</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="1、首先什么是虚拟-DOM"><a href="#1、首先什么是虚拟-DOM" class="headerlink" title="1、首先什么是虚拟 DOM?"></a>1、首先什么是虚拟 DOM?</h2><p>虚拟 DOM 就是一个普通的 JS 对象，用来描述真实的 DOM 结构的对象</p>
-<h2 id="2、什么事-Diff-算法？"><a href="#2、什么事-Diff-算法？" class="headerlink" title="2、什么事 Diff 算法？"></a>2、什么事 Diff 算法？</h2><p>diff 算法是用来比较虚拟节点、并返回一个 patch 对象，用来存储新旧节点不同的地方<br>简单来说：diff 的过程就是调用 patch 函数，比较新旧节点，边比较边给 DOM 打补丁</p>
-<blockquote>
-<p>那么 diff 算法有什么特征呢？</p>
-</blockquote>
-<ol>
-<li>比较只会发生在同层级进行，不会跨层级比较</li>
-<li>diff 比较的过程中，循环从两边向中间比较</li>
-</ol>
-<blockquote>
-<p>diff 算法的步骤</p>
-</blockquote>
-<ul>
-<li>用 js 对象结构表示 ODM 的结构，然后用这个树结果创建一个真实的 DOM，插入到页面中</li>
-<li>当状态发生变化时，重新构造一个新的对象树</li>
-<li>新旧对象树进行比较（diff）,记录差异变化</li>
-<li>把记录的差异应用到真实 DOM 树上（patch），完成视图的更新</li>
-</ul>
-<blockquote>
-<p>原理分析</p>
-</blockquote>
-<p>当数据发生变化时，set 方法会调用 Dep.notify 通知所以得订阅者 Watcher,订阅者会调用 patch 给真实的 DOM 打补丁，更新响应的视图</p>
-<h2 id="Vue2-中的-Diff"><a href="#Vue2-中的-Diff" class="headerlink" title="Vue2 中的 Diff"></a>Vue2 中的 Diff</h2><blockquote>
-<p>双端 diff 算法</p>
-</blockquote>
-<ol>
-<li>当数据发生变化时，订阅者 Watcher 会调用 patch 给真实 DOM 打补丁</li>
-<li>通过 SameVnode(oldVode, newVode)进行判断，相同时则调用 patchVnode 方法</li>
-<li>patchVnode<ul>
-<li>判断文本节点，直接设置文本</li>
-<li>子节点比较<br>一方不存在是，直接删除或创建<br>两者都有时，执行 updateChildren 函数比较子节点</li>
-</ul>
-</li>
-<li>updateChildren<ul>
-<li>设置新旧 vnode 的头尾指针</li>
-<li>新旧头尾进行比较，循环先中间靠拢（四个角向中间靠拢比较）<br>根据情况调用 patchVnode 进行 patch 重复流程、调用 createElem 创建一个新的节点<br>从哈希表寻找 key 一致的 vNode 节点再分情况操作</li>
-</ul>
-</li>
-</ol>
-<h2 id="vue3-中的-Diff"><a href="#vue3-中的-Diff" class="headerlink" title="vue3 中的 Diff"></a>vue3 中的 Diff</h2><blockquote>
-<p>快速 diff 算法</p>
-</blockquote>
-<p>Vue3 在真正的 diff 之前会执行一段“预处理”的前置操作，目的是先把科一直接排除的项直接去掉</p>
-<ol>
-<li>对比新旧节点头部相同指针的节点，相同则进行 diff，不同就跳转下一步</li>
-<li>新旧节点尾部指针指向的节点，相同则进行 diff，不同就跳转下一步</li>
-<li>此时剩余新旧节点可能存在乱序、一移除、新创建的情况，进行特殊处理来更新<ul>
-<li>增删节点</li>
-<li>diff<br>首先根据新节点剩余内容，跟 key 创建一个 map 映射<br>最长递增子序列 为减少 dom 的操作</li>
-</ul>
-</li>
-</ol>
-<blockquote>
-<p>vue3 牺牲了一部分 js 性能，换来了 dom 渲染的性能</p>
-</blockquote>
+                <h1 id="Vue-组件间的通讯方式"><a href="#Vue-组件间的通讯方式" class="headerlink" title="Vue 组件间的通讯方式"></a>Vue 组件间的通讯方式</h1><div class="note note-warning">
+            <p>Vue 是单项数据流</p>
+          </div>
 
+<h2 id="父组件向子组件传递-props"><a href="#父组件向子组件传递-props" class="headerlink" title="父组件向子组件传递 props"></a>父组件向子组件传递 props</h2><p>父组件通过 props 向子组件传递数据，子组件通过 $emit 和父组件通信</p>
+<blockquote>
+<p>父组件</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;script setup&gt;<br>import &#123; ref &#125; from &#x27;vue&#x27;;<br>import Child from &#x27;./components/Child.vue&#x27;;<br><br>const msg = ref(&#x27;msg&#x27;);<br>const changeMsg = (str) =&gt; &#123;<br>  msg.value = str;<br>&#125;;<br>&lt;/script&gt;<br><br>&lt;template&gt;<br>  &lt;Child :msg=&quot;msg&quot; :fn=&quot;changeMsg&quot; /&gt;<br>&lt;/template&gt;<br><br>&lt;style scoped&gt;&lt;/style&gt;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>子组件</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;script setup&gt;<br>defineProps(&#123;<br>  msg: String,<br>  fn: Function<br>&#125;);<br>&lt;/script&gt;<br><br>&lt;template&gt;<br>  &lt;div&gt;&#123;&#123; msg &#125;&#125;&lt;/div&gt;<br>  &lt;button @click=&quot;fn(&#x27;change msg&#x27;)&quot;&gt;change msg&lt;/button&gt;<br>&lt;/template&gt;<br><br>&lt;style scoped&gt;&lt;/style&gt;<br></code></pre></td></tr></table></figure>
+
+<h2 id="子组件向父组件传递-emit"><a href="#子组件向父组件传递-emit" class="headerlink" title="子组件向父组件传递 $emit"></a>子组件向父组件传递 $emit</h2><p>$emit 的特点</p>
+<ul>
+<li>$emit 绑定一个自定义事件，当事件被执行的时候会将参数传递给父组件，而父组件通过 v-on 监听并接受参数</li>
+</ul>
+<blockquote>
+<p>父组件</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;script setup&gt;<br>import &#123; ref &#125; from &#x27;vue&#x27;;<br>import Child from &#x27;./components/Child.vue&#x27;;<br><br>const msg = ref(&#x27;msg&#x27;);<br>const changeMsg = (str) =&gt; &#123;<br>  msg.value = str;<br>&#125;;<br>&lt;/script&gt;<br><br>&lt;template&gt;<br>  &lt;Child :msg=&quot;msg&quot; @fn=&quot;changeMsg&quot; /&gt;<br>&lt;/template&gt;<br><br>&lt;style scoped&gt;&lt;/style&gt;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>子组件</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;script setup&gt;<br>defineProps(&#123;<br>  msg: String<br>&#125;);<br>defineEmits([&#x27;fn&#x27;]);<br>&lt;/script&gt;<br><br>&lt;template&gt;<br>  &lt;div&gt;&#123;&#123; msg &#125;&#125;&lt;/div&gt;<br>  &lt;button @click=&quot;$emit(&#x27;fn&#x27;, &#x27;change msg&#x27;)&quot;&gt;change msg&lt;/button&gt;<br>&lt;/template&gt;<br><br>&lt;style scoped&gt;&lt;/style&gt;<br></code></pre></td></tr></table></figure>
+
+<h2 id="兄弟组件传递"><a href="#兄弟组件传递" class="headerlink" title="兄弟组件传递"></a>兄弟组件传递</h2><ol>
+<li>兄弟组件间通信可以借助父组件交互</li>
+</ol>
+<h2 id="ref-x2F-refs"><a href="#ref-x2F-refs" class="headerlink" title="ref &#x2F; $refs"></a>ref &#x2F; $refs</h2><p>该方法也是实现父子组件通信的</p>
+<p>ref: 该属性用在子组件上，他指向子组件的实例，可以通过实例来访问组件的数据和方法</p>
+<blockquote>
+<p>子组件</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;script setup&gt;<br>import &#123; ref &#125; from &#x27;vue&#x27;;<br>const msg = ref(&#x27;msg&#x27;);<br>const changeMsg = (str) =&gt; &#123;<br>  msg.value = str;<br>&#125;;<br>// vue3需要主动暴露<br>defineExpose(&#123;<br>  msg,<br>  changeMsg<br>&#125;);<br>&lt;/script&gt;<br><br>&lt;template&gt;<br>  &lt;div&gt;&#123;&#123; msg &#125;&#125;&lt;/div&gt;<br>&lt;/template&gt;<br><br>&lt;style scoped&gt;&lt;/style&gt;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>父组件</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;script setup&gt;<br>import &#123; ref &#125; from &#x27;vue&#x27;;<br>import Child from &#x27;./components/Child.vue&#x27;;<br>const refChild = ref(null);<br>const changeMsg = (str) =&gt; &#123;<br>  // onMounted后才能获取到<br>  refChild.value?.changeMsg(str);<br>&#125;;<br>&lt;/script&gt;<br><br>&lt;template&gt;<br>  &lt;Child ref=&quot;refChild&quot; /&gt;<br>  &lt;button @click=&quot;changeMsg(&#x27;change msg&#x27;)&quot;&gt;change msg&lt;/button&gt;<br>&lt;/template&gt;<br><br>&lt;style scoped&gt;&lt;/style&gt;<br></code></pre></td></tr></table></figure>
+
+<h1 id="依赖注入-provide-x2F-inject"><a href="#依赖注入-provide-x2F-inject" class="headerlink" title="依赖注入 provide &#x2F; inject"></a>依赖注入 provide &#x2F; inject</h1><p>该方法就是 vue 中的依赖主人，该方法用于父子&#x2F;祖孙组件间的通信</p>
+<p>provide&#x2F;inject 是 vue 提供的两个钩子</p>
+<ul>
+<li>provide 用来发送数据或方法</li>
+<li>inject 用来接受数据或方法</li>
+</ul>
+<blockquote>
+<p>父组件</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;script setup&gt;<br>import &#123; ref, provide &#125; from &#x27;vue&#x27;;<br>import Child from &#x27;./components/Child.vue&#x27;;<br>const msg = ref(&#x27;msg&#x27;);<br>const changeMsg = (str) =&gt; &#123;<br>  msg.value = str;<br>&#125;;<br>provide(&#x27;msg&#x27;, msg);<br>provide(&#x27;changeMsg&#x27;, changeMsg);<br>&lt;/script&gt;<br><br>&lt;template&gt;<br>  &lt;div&gt;&#123;&#123; msg &#125;&#125;&lt;/div&gt;<br>  &lt;Child /&gt;<br>&lt;/template&gt;<br><br>&lt;style scoped&gt;&lt;/style&gt;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>子组件</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;script setup&gt;<br>import &#123; ref, inject &#125; from &#x27;vue&#x27;;<br>const msg = inject(&#x27;msg&#x27;);<br>const changeMsg = inject(&#x27;changeMsg&#x27;);<br>&lt;/script&gt;<br><br>&lt;template&gt;<br>  &lt;div&gt;&#123;&#123; msg &#125;&#125;&lt;/div&gt;<br>  &lt;button @click=&quot;changeMsg(&#x27;change msg&#x27;)&quot;&gt;change msg&lt;/button&gt;<br>&lt;/template&gt;<br><br>&lt;style scoped&gt;&lt;/style&gt;<br></code></pre></td></tr></table></figure>
+
+<h2 id="parent-x2F-children"><a href="#parent-x2F-children" class="headerlink" title="$parent &#x2F; $children"></a>$parent &#x2F; $children</h2><blockquote>
+<p>$parent</p>
+</blockquote>
+<blockquote>
+<p>$children（vue3 已移除）</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vue">this.$children[0].message = &#x27;JavaScript&#x27;<br></code></pre></td></tr></table></figure>
+
+<h2 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h2><h2 id="eventBus"><a href="#eventBus" class="headerlink" title="eventBus"></a>eventBus</h2><h2 id="mitt"><a href="#mitt" class="headerlink" title="mitt"></a>mitt</h2><h2 id="attrs-listeners"><a href="#attrs-listeners" class="headerlink" title="$attrs $listeners"></a>$attrs $listeners</h2>
                 
               </div>
             
@@ -422,8 +434,6 @@
       
         <a href="/xiaolanchong.githug.io/tags/Vue/">#Vue</a>
       
-        <a href="/xiaolanchong.githug.io/tags/Diff/">#Diff</a>
-      
     </div>
   
 </div>
@@ -434,8 +444,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Diff算法</div>
-      <div>https://xwxlc.github.io/xiaolanchong.githug.io/2023/04/07/Diff算法/</div>
+      <div>Vue组件间的通讯方式</div>
+      <div>https://xwxlc.github.io/xiaolanchong.githug.io/2023/04/08/Vue组件间的通讯方式/</div>
     </div>
     <div class="license-meta">
       
@@ -447,7 +457,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年4月7日</div>
+          <div>2023年4月8日</div>
         </div>
       
       
@@ -479,9 +489,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/xiaolanchong.githug.io/2023/04/08/Vue%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E9%80%9A%E8%AE%AF%E6%96%B9%E5%BC%8F/" title="Vue组件间的通讯方式">
+                      <a href="/xiaolanchong.githug.io/2023/04/08/Vue%E7%9A%84%E4%B8%80%E4%BA%9B%E9%9D%A2%E8%AF%95%E9%A2%98/" title="Vue的一些面试题">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Vue组件间的通讯方式</span>
+                        <span class="hidden-mobile">Vue的一些面试题</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -489,8 +499,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/xiaolanchong.githug.io/2023/04/07/%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/" title="双向数据绑定">
-                        <span class="hidden-mobile">双向数据绑定</span>
+                      <a href="/xiaolanchong.githug.io/2023/04/07/Diff%E7%AE%97%E6%B3%95/" title="Diff算法">
+                        <span class="hidden-mobile">Diff算法</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -56,7 +56,7 @@ navbar:
     - { key: 'archives', link: '/archives', icon: 'iconfont icon-archive-fill', name: '归档' }
     - { key: 'categories', link: '/categories', icon: 'iconfont icon-category-fill', name: '分类' }
     - { key: 'tag', link: '/tags/', icon: 'iconfont icon-tags-fill', name: '标签' }
-    - { key: 'about', link: '/about/', icon: 'iconfont icon-user-fill', name: '关于' }
+    # - { key: 'about', link: '/about/', icon: 'iconfont icon-user-fill', name: '关于' }
     - { key: 'about', link: '/about/', icon: 'iconfont icon-user-fill', name: '联系我' }
     - { key: 'links', link: '/links/', icon: 'iconfont icon-link-fill', name: '友情链接' }
 
@@ -71,6 +71,12 @@ footer:
     pv_format: '总访问量 {} 次' # 显示的文本，{}是数字的占位符（必须包含)，下同
     uv_format: '总访客数 {} 人'
   content: '<a href="https://github.com/xwxlc">小懒虫&的博客 | 记录成长的过程</a>'
+
+azyload:
+  enable: true
+  loading_img: /img/loading.gif
+  onlypost: false
+  offset_factor: 2
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'

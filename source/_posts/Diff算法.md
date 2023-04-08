@@ -1,6 +1,5 @@
 ---
 title: Diff算法
-excerpt: ''
 date: 2023-04-07 21:00:00
 categories: [面试题]
 tags: [Vue, Diff]
