@@ -9,6 +9,7 @@ keywords: '小懒虫& 博客'
 author: xiaolanchong
 language: zh-CN
 timezone: ''
+favicon: /images/xiaolanchong.jpeg
 
 # 网页访问统计
 web_analytics:
@@ -61,7 +62,7 @@ navbar:
 
 links:
   items:
-    - { title: '小懒虫&', intro: '我的GitHub', link: 'https://github.com/xwxlc', avatar: '/img/favicon.png' }
+    - { title: '小懒虫&', intro: '我的GitHub', link: 'https://github.com/xwxlc', avatar: '/images/xiaolanchong.jpeg' }
 
 footer:
   statistics:
@@ -166,4 +167,4 @@ deploy:
   type: git
   repo: https://github.com/xwxlc/xiaolanchong.githug.io
   branch: docs
-  message: '2023-04-09'
+  message: '2023-04-08'
