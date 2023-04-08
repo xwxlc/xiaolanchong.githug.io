@@ -16,24 +16,26 @@
   <meta name="author" content="xiaolanchong">
   <meta name="keywords" content="小懒虫&amp; 博客">
   
-    <meta name="description" content="什么是双向数据绑定简单来说就是数据层和视图层之间实现相互绑定也就是说视图发生变化数据会发生变化，同理数据发生变化视图也会发生相应的改变 双向数据绑定的原理（MVVM） M 数据层 V 视图层 VM 业务处理层（核心层） 监听器 Obsever 对所有数据的属性进行监听 解析器 Compiler 对每个元素节点进行解析    如何实现双向绑定 初始化 对 data 执行响应处理 Obsever 同时">
+    <meta name="description" content="高阶函数 在数学和计算机科学中，高阶函数是至少满足下列一个条件的函数   接受一个或多个函数作为输入 接受一个或多个函数作为参数传入 如：Array.prototype.map()和 Array,prototype.filter()   输出一个函数。 输出一个函数 如：debuonce 和 throttle    123456789101112131415161718192021222324fu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="双向数据绑定">
-<meta property="og:url" content="https://xwxlc.github.io/xiaolanchong.githug.io/2023/04/07/%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/index.html">
+<meta property="og:title" content="高阶函数">
+<meta property="og:url" content="https://xwxlc.github.io/xiaolanchong.githug.io/2023/04/08/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="小懒虫&amp;">
-<meta property="og:description" content="什么是双向数据绑定简单来说就是数据层和视图层之间实现相互绑定也就是说视图发生变化数据会发生变化，同理数据发生变化视图也会发生相应的改变 双向数据绑定的原理（MVVM） M 数据层 V 视图层 VM 业务处理层（核心层） 监听器 Obsever 对所有数据的属性进行监听 解析器 Compiler 对每个元素节点进行解析    如何实现双向绑定 初始化 对 data 执行响应处理 Obsever 同时">
+<meta property="og:description" content="高阶函数 在数学和计算机科学中，高阶函数是至少满足下列一个条件的函数   接受一个或多个函数作为输入 接受一个或多个函数作为参数传入 如：Array.prototype.map()和 Array,prototype.filter()   输出一个函数。 输出一个函数 如：debuonce 和 throttle    123456789101112131415161718192021222324fu">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://xwxlc.github.io/xiaolanchong.githug.io/images/%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A.png">
-<meta property="article:published_time" content="2023-04-07T12:00:00.000Z">
-<meta property="article:modified_time" content="2023-04-08T04:44:41.775Z">
+<meta property="article:published_time" content="2023-04-08T10:28:45.000Z">
+<meta property="article:modified_time" content="2023-04-08T11:00:05.588Z">
 <meta property="article:author" content="xiaolanchong">
-<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="函数组合">
+<meta property="article:tag" content="柯里化函数">
+<meta property="article:tag" content="偏函数">
+<meta property="article:tag" content="惰性函数">
+<meta property="article:tag" content="缓存函数">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://xwxlc.github.io/xiaolanchong.githug.io/images/%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A.png">
   
   
   
-  <title>双向数据绑定 - 小懒虫&amp;</title>
+  <title>高阶函数 - 小懒虫&amp;</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -241,7 +243,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="双向数据绑定"></span>
+            <span id="subtitle" data-typed-text="高阶函数"></span>
           
         </div>
 
@@ -258,7 +260,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          352 字
+          580 字
         
       </span>
     
@@ -270,7 +272,7 @@
         
         
           <!-- compatible with older versions-->
-          3 分钟
+          5 分钟
         
       </span>
     
@@ -316,29 +318,38 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">双向数据绑定</h1>
+            <h1 style="display: none">高阶函数</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="什么是双向数据绑定"><a href="#什么是双向数据绑定" class="headerlink" title="什么是双向数据绑定"></a>什么是双向数据绑定</h2><p>简单来说就是数据层和视图层之间实现相互绑定<br>也就是说视图发生变化数据会发生变化，同理数据发生变化视图也会发生相应的改变</p>
-<h2 id="双向数据绑定的原理（MVVM）"><a href="#双向数据绑定的原理（MVVM）" class="headerlink" title="双向数据绑定的原理（MVVM）"></a>双向数据绑定的原理（MVVM）</h2><ul>
-<li>M 数据层</li>
-<li>V 视图层</li>
-<li>VM 业务处理层（核心层）<ul>
-<li>监听器 Obsever 对所有数据的属性进行监听</li>
-<li>解析器 Compiler 对每个元素节点进行解析</li>
-</ul>
+                <h1 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h1><blockquote>
+<p>在数学和计算机科学中，高阶函数是至少满足下列一个条件的函数</p>
+</blockquote>
+<ul>
+<li>接受一个或多个函数作为输入<blockquote>
+<p>接受一个或多个函数作为参数传入 如：Array.prototype.map()和 Array,prototype.filter()</p>
+</blockquote>
+</li>
+<li>输出一个函数。<blockquote>
+<p>输出一个函数 如：debuonce 和 throttle</p>
+</blockquote>
 </li>
 </ul>
-<h2 id="如何实现双向绑定"><a href="#如何实现双向绑定" class="headerlink" title="如何实现双向绑定"></a>如何实现双向绑定</h2><ul>
-<li>初始化 对 data 执行响应处理 Obsever</li>
-<li>同时对模版执行编译从 data 中获取动态数据，并初始化视图 Compiler</li>
-<li>同时定义一个更新函数和 Watcher 将来对象数据发生变化时 Watcher 会调用更新函数</li>
-<li>由于 data 的某个属性 key 在视图中可能出现多次，所以每个 key 都需要有一个 Dep 来管理多个 Watcher</li>
-<li>将来 data 中数据一旦发生变化，会首先找到对应的 Dep 通知所有的 Watcher 执行更新函数</li>
-</ul>
-<p><img src="/xiaolanchong.githug.io/images/%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A.png" srcset="/xiaolanchong.githug.io/img/loading.gif" lazyload alt="双向数据绑定原理"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">debuonce</span>(<span class="hljs-params">fn, delay</span>) &#123;<br>  <span class="hljs-keyword">let</span> timer = <span class="hljs-literal">null</span>;<br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">if</span> (timer) &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>    timer = <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>      <span class="hljs-title function_">fn</span>();<br>    &#125;, delay);<br>  &#125;;<br>&#125;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">throttle</span>(<span class="hljs-params">fn, delay</span>) &#123;<br>  <span class="hljs-keyword">let</span> flag = <span class="hljs-literal">true</span>;<br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">if</span> (!flag) &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>    flag = <span class="hljs-literal">false</span>;<br>    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>      <span class="hljs-title function_">fn</span>();<br>      flag = <span class="hljs-literal">true</span>;<br>    &#125;, delay);<br>  &#125;;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="函数组合"><a href="#函数组合" class="headerlink" title="函数组合"></a>函数组合</h1><blockquote>
+<p>函数组合就是将两个或两个以上的函数组合生成一个新函数的过程：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="柯里化函数"><a href="#柯里化函数" class="headerlink" title="柯里化函数"></a>柯里化函数</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br></code></pre></td></tr></table></figure>
+
+<h1 id="偏函数"><a href="#偏函数" class="headerlink" title="偏函数"></a>偏函数</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br></code></pre></td></tr></table></figure>
+
+<h1 id="惰性函数"><a href="#惰性函数" class="headerlink" title="惰性函数"></a>惰性函数</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br></code></pre></td></tr></table></figure>
+
+<h1 id="缓存函数"><a href="#缓存函数" class="headerlink" title="缓存函数"></a>缓存函数</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -357,7 +368,7 @@
     
       <span class="category-chain">
         
-  <a href="/xiaolanchong.githug.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="category-chain-item">面试题</a>
+  <a href="/xiaolanchong.githug.io/categories/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/" class="category-chain-item">高阶函数</a>
   
   
 
@@ -372,7 +383,15 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/xiaolanchong.githug.io/tags/Vue/">#Vue</a>
+        <a href="/xiaolanchong.githug.io/tags/%E5%87%BD%E6%95%B0%E7%BB%84%E5%90%88/">#函数组合</a>
+      
+        <a href="/xiaolanchong.githug.io/tags/%E6%9F%AF%E9%87%8C%E5%8C%96%E5%87%BD%E6%95%B0/">#柯里化函数</a>
+      
+        <a href="/xiaolanchong.githug.io/tags/%E5%81%8F%E5%87%BD%E6%95%B0/">#偏函数</a>
+      
+        <a href="/xiaolanchong.githug.io/tags/%E6%83%B0%E6%80%A7%E5%87%BD%E6%95%B0/">#惰性函数</a>
+      
+        <a href="/xiaolanchong.githug.io/tags/%E7%BC%93%E5%AD%98%E5%87%BD%E6%95%B0/">#缓存函数</a>
       
     </div>
   
@@ -384,8 +403,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>双向数据绑定</div>
-      <div>https://xwxlc.github.io/xiaolanchong.githug.io/2023/04/07/什么是双向数据绑定/</div>
+      <div>高阶函数</div>
+      <div>https://xwxlc.github.io/xiaolanchong.githug.io/2023/04/08/高阶函数/</div>
     </div>
     <div class="license-meta">
       
@@ -397,7 +416,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年4月7日</div>
+          <div>2023年4月8日</div>
         </div>
       
       
@@ -429,15 +448,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/xiaolanchong.githug.io/2023/04/07/Diff%E7%AE%97%E6%B3%95/" title="Diff算法">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Diff算法</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/xiaolanchong.githug.io/2023/04/08/%E6%B5%8F%E8%A7%88%E5%99%A8%E9%83%BD%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88/" title="浏览器都做了什么">
+                        <span class="hidden-mobile">浏览器都做了什么</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>

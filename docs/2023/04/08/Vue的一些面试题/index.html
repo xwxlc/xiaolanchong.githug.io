@@ -16,15 +16,15 @@
   <meta name="author" content="xiaolanchong">
   <meta name="keywords" content="小懒虫&amp; 博客">
   
-    <meta name="description" content="v-model 原理v-model 是 vue 的语法糖 input[text&#x2F;number&#x2F;password]、textarea 元素使用的 value 属性和 input 事件 input[checkbox&#x2F;radio]元素使用的 checked 属性和 change 事件 select 元素将 value 作为 prop 并将 change 作为事件 为什么 d">
+    <meta name="description" content="Vue 的生命周期 老常规第一问   Vue2：beforeCreate &#x3D;&gt; created &#x3D;&gt; beforeMount &#x3D;&gt; mounted &#x3D;&gt; beforeUpdate &#x3D;&gt; updated &#x3D;&gt; beforeDestroy &#x3D;&gt; destroyed Vue3：setup &amp;#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue的一些面试题">
 <meta property="og:url" content="https://xwxlc.github.io/xiaolanchong.githug.io/2023/04/08/Vue%E7%9A%84%E4%B8%80%E4%BA%9B%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
 <meta property="og:site_name" content="小懒虫&amp;">
-<meta property="og:description" content="v-model 原理v-model 是 vue 的语法糖 input[text&#x2F;number&#x2F;password]、textarea 元素使用的 value 属性和 input 事件 input[checkbox&#x2F;radio]元素使用的 checked 属性和 change 事件 select 元素将 value 作为 prop 并将 change 作为事件 为什么 d">
+<meta property="og:description" content="Vue 的生命周期 老常规第一问   Vue2：beforeCreate &#x3D;&gt; created &#x3D;&gt; beforeMount &#x3D;&gt; mounted &#x3D;&gt; beforeUpdate &#x3D;&gt; updated &#x3D;&gt; beforeDestroy &#x3D;&gt; destroyed Vue3：setup &amp;#">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-04-08T08:03:29.000Z">
-<meta property="article:modified_time" content="2023-04-08T08:20:06.895Z">
+<meta property="article:modified_time" content="2023-04-08T10:22:37.464Z">
 <meta property="article:author" content="xiaolanchong">
 <meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary_large_image">
@@ -193,18 +193,6 @@
             <li class="nav-item">
               <a class="nav-link" href="/xiaolanchong.githug.io/about/">
                 <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/xiaolanchong.githug.io/about/">
-                <i class="iconfont icon-user-fill"></i>
                 <span>联系我</span>
               </a>
             </li>
@@ -268,7 +256,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          682 字
+          2.1k 字
         
       </span>
     
@@ -280,7 +268,7 @@
         
         
           <!-- compatible with older versions-->
-          6 分钟
+          18 分钟
         
       </span>
     
@@ -331,7 +319,29 @@
             
               <div class="markdown-body">
                 
-                <h1 id="v-model-原理"><a href="#v-model-原理" class="headerlink" title="v-model 原理"></a>v-model 原理</h1><p>v-model 是 vue 的语法糖</p>
+                <h1 id="Vue-的生命周期"><a href="#Vue-的生命周期" class="headerlink" title="Vue 的生命周期"></a>Vue 的生命周期</h1><blockquote>
+<p>老常规第一问</p>
+</blockquote>
+<ul>
+<li>Vue2：beforeCreate &#x3D;&gt; created &#x3D;&gt; beforeMount &#x3D;&gt; mounted &#x3D;&gt; beforeUpdate &#x3D;&gt; updated &#x3D;&gt; beforeDestroy &#x3D;&gt; destroyed</li>
+<li>Vue3：setup &#x3D;&gt; onBeforeMount &#x3D;&gt; onMount &#x3D;&gt; onBeforeUpdate &#x3D;&gt; onUpdated &#x3D;&gt; onBeforeUnmount &#x3D;&gt; onUnmounted</li>
+</ul>
+<blockquote>
+<p>keep-alive</p>
+</blockquote>
+<ul>
+<li>Vue2：activated 、deactivated</li>
+<li>Vue3：onActivated 、onDeactivated</li>
+</ul>
+<blockquote>
+<p>捕获一个来自子孙组件的异常</p>
+</blockquote>
+<ul>
+<li>vue2：errorCaptured</li>
+<li>vue3：onErrorCaptured</li>
+</ul>
+<h1 id="父子生命周期的顺序"><a href="#父子生命周期的顺序" class="headerlink" title="父子生命周期的顺序"></a>父子生命周期的顺序</h1><p>子组件先挂载，然后父组件，更新也类似</p>
+<h1 id="v-model-原理"><a href="#v-model-原理" class="headerlink" title="v-model 原理"></a>v-model 原理</h1><p>v-model 是 vue 的语法糖</p>
 <p>input[text&#x2F;number&#x2F;password]、textarea 元素使用的 value 属性和 input 事件</p>
 <p>input[checkbox&#x2F;radio]元素使用的 checked 属性和 change 事件</p>
 <p>select 元素将 value 作为 prop 并将 change 作为事件</p>
@@ -350,6 +360,8 @@
 <li>computed:计算属性,有缓存,当我们需要进行数值计算，并且依赖于其他数据时使用</li>
 <li>watch:监听,当我们需要异步或开销较大的操作时使用,可以根据需要限制我们操作的频次</li>
 </ul>
+<a href="/xiaolanchong.githug.io/2023/04/08/computed%E5%92%8Cwatch%E7%9A%84%E5%8C%BA%E5%88%AB/" title="computed和watch的区别">computed和watch的区别</a>
+
 <h1 id="聊聊-nextTick"><a href="#聊聊-nextTick" class="headerlink" title="聊聊 nextTick"></a>聊聊 nextTick</h1><ol>
 <li>把回调函数放入 callbacks 等待执行</li>
 <li>将执行函数放入微任务或宏任务中<blockquote>
@@ -358,6 +370,69 @@
 </li>
 <li>事件循环到微任务或宏任务，执行函数依次执行 callbacks 中的回调</li>
 </ol>
+<h1 id="render"><a href="#render" class="headerlink" title="render"></a>render</h1><blockquote>
+<p>为什么使用 render 函数？</p>
+</blockquote>
+<p>VUE 推荐在绝大多数情况下使用 template 来创建我们的 HTML。然而在一些场景中，我们真的需要 JavaScript 的完全编程的能力，这就是 render 函数，它比 template 更接近编译器。（这是官方的话）<br>简单来说，我们为什么要使用 render 函数呢？？ 便是因为我们最经常使用的一个引入。</p>
+<blockquote>
+<p>render 函数的解析</p>
+</blockquote>
+<p>render 函数即渲染函数，它是个函数，它的参数 createElement 也是个函数。</p>
+<p>createElement 有三个参数</p>
+<ol>
+<li>一个 HTML 标签字符串 必选</li>
+<li>一个包含模板相关属性的数据对象 可选</li>
+<li>子虚拟节点 可选</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_59722204/article/details/126907040">查看原文</a></p>
+<h1 id="v-show-与-v-if-的区别"><a href="#v-show-与-v-if-的区别" class="headerlink" title="v-show 与 v-if 的区别"></a>v-show 与 v-if 的区别</h1><ul>
+<li>v-if 是条件渲染 确保在切换过程中条件块内的事件监听器和子组件适当地被销毁重建</li>
+<li>v-show 元素总会被渲染，且只是简单地基于 display 属性进行切换</li>
+</ul>
+<h1 id="Class-与-Style-如何动态绑定"><a href="#Class-与-Style-如何动态绑定" class="headerlink" title="Class 与 Style 如何动态绑定"></a>Class 与 Style 如何动态绑定</h1><ul>
+<li>对象语法</li>
+<li>数组语法</li>
+</ul>
+<h1 id="vue-router-路由模式有几种"><a href="#vue-router-路由模式有几种" class="headerlink" title="vue-router 路由模式有几种"></a>vue-router 路由模式有几种</h1><ol>
+<li>hash location.hash 向服务端发出请求是 hash 部分不会被发送</li>
+<li>history HTML5 提供了 History API 来实现 URL 的变化<ul>
+<li>history.pushState()</li>
+<li>history.repalceState()</li>
+</ul>
+</li>
+<li>abstract 支持所有 JavaScript 运行环境，如 Node.js 服务器端。如果发现没有浏览器的 API，路由会自动强制进入这个模式.</li>
+</ol>
+<h1 id="SPA-单页的理解-优缺点"><a href="#SPA-单页的理解-优缺点" class="headerlink" title="SPA 单页的理解 优缺点"></a>SPA 单页的理解 优缺点</h1><ul>
+<li>SPA 仅在页面初始化时加载相应的 html、js、css 等</li>
+<li>SPA 不会因为用户的操作而进行页面的重新加载和跳转；取而代之的是利用路由机制实现页面内容的变化</li>
+</ul>
+<blockquote>
+<p>优点：</p>
+</blockquote>
+<ol>
+<li>用户体验好、快、内容的改变不需重新加载整个页面，避免不必要的跳转和重新渲染</li>
+<li>SPA 相对服务器压力小；</li>
+<li>前后端分离，架构清晰，前端负责交互逻辑，后端提供相应的数据接口；</li>
+</ol>
+<blockquote>
+<p>缺点：</p>
+</blockquote>
+<ol>
+<li>首屏加载等待问题；</li>
+<li>SEO 难度大</li>
+</ol>
+<blockquote>
+<p>SPA</p>
+</blockquote>
+<ol>
+<li>CSR 客户端渲染&#x3D;&gt;当前主流模式</li>
+<li>SSR 服务端渲染&#x3D;&gt;能较好的解决 SEO 的问题</li>
+<li>Prerender 预渲染&#x3D;&gt;打包阶段预先生成页面</li>
+<li>同构 两者的结合&#x3D;&gt; 参考框架 Nuxt.js</li>
+</ol>
+<div class="note note-warning">
+            <p>注：SSR 需要路由需要使用 history 模式</p>
+          </div>
 
                 
               </div>
@@ -447,6 +522,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/xiaolanchong.githug.io/2023/04/08/computed%E5%92%8Cwatch%E7%9A%84%E5%8C%BA%E5%88%AB/" title="computed和watch的区别">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">computed和watch的区别</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
