@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>双向数据绑定</title>
+    <link href="/xiaolanchong.githug.io/2023/04/07/%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/"/>
+    <url>/xiaolanchong.githug.io/2023/04/07/%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/</url>
+    
+    <content type="html"><![CDATA[<h2 id="什么是双向数据绑定"><a href="#什么是双向数据绑定" class="headerlink" title="什么是双向数据绑定"></a>什么是双向数据绑定</h2><p>简单来说就是数据层和视图层之间实现相互绑定<br>也就是说视图发生变化数据会发生变化，同理数据发生变化视图也会发生相应的改变</p><h2 id="双向数据绑定的原理（MVVM）"><a href="#双向数据绑定的原理（MVVM）" class="headerlink" title="双向数据绑定的原理（MVVM）"></a>双向数据绑定的原理（MVVM）</h2><ul><li>M 数据层</li><li>V 视图层</li><li>VM 业务处理层（核心层）<ul><li>监听器 Obsever 对所有数据的属性进行监听</li><li>解析器 Compiler 对每个元素节点进行解析</li></ul></li></ul><h2 id="如何实现双向绑定"><a href="#如何实现双向绑定" class="headerlink" title="如何实现双向绑定"></a>如何实现双向绑定</h2><ul><li>初始化 对 data 执行响应处理 Obsever</li><li>同时对模版执行编译从 data 中获取动态数据，并初始化视图 Compiler</li><li>同时定义一个更新函数和 Watcher 将来对象数据发生变化时 Watcher 会调用更新函数</li><li>由于 data 的某个属性 key 在视图中可能出现多次，所以每个 key 都需要有一个 Dep 来管理多个 Watcher</li><li>将来 data 中数据一旦发生变化，会首先找到对应的 Dep 通知所有的 Watcher 执行更新函数</li></ul><p><img src="/xiaolanchong.githug.io/images/%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A.png" alt="双向数据绑定原理"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>面试题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Vue</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Diff算法</title>
+    <link href="/xiaolanchong.githug.io/2023/04/07/Diff%E7%AE%97%E6%B3%95/"/>
+    <url>/xiaolanchong.githug.io/2023/04/07/Diff%E7%AE%97%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<h2 id="1、首先什么是虚拟-DOM"><a href="#1、首先什么是虚拟-DOM" class="headerlink" title="1、首先什么是虚拟 DOM?"></a>1、首先什么是虚拟 DOM?</h2><p>虚拟 DOM 就是一个普通的 JS 对象，用来描述真实的 DOM 结构的对象</p><h2 id="2、什么事-Diff-算法？"><a href="#2、什么事-Diff-算法？" class="headerlink" title="2、什么事 Diff 算法？"></a>2、什么事 Diff 算法？</h2><p>diff 算法是用来比较虚拟节点、并返回一个 patch 对象，用来存储新旧节点不同的地方<br>简单来说：diff 的过程就是调用 patch 函数，比较新旧节点，边比较边给 DOM 打补丁</p><blockquote><p>那么 diff 算法有什么特征呢？</p></blockquote><ol><li>比较只会发生在同层级进行，不会跨层级比较</li><li>diff 比较的过程中，循环从两边向中间比较</li></ol><blockquote><p>diff 算法的步骤</p></blockquote><ul><li>用 js 对象结构表示 ODM 的结构，然后用这个树结果创建一个真实的 DOM，插入到页面中</li><li>当状态发生变化时，重新构造一个新的对象树</li><li>新旧对象树进行比较（diff）,记录差异变化</li><li>把记录的差异应用到真实 DOM 树上（patch），完成视图的更新</li></ul><blockquote><p>原理分析</p></blockquote><p>当数据发生变化时，set 方法会调用 Dep.notify 通知所以得订阅者 Watcher,订阅者会调用 patch 给真实的 DOM 打补丁，更新响应的视图</p><h2 id="Vue2-中的-Diff"><a href="#Vue2-中的-Diff" class="headerlink" title="Vue2 中的 Diff"></a>Vue2 中的 Diff</h2><blockquote><p>双端 diff 算法</p></blockquote><ol><li>当数据发生变化时，订阅者 Watcher 会调用 patch 给真实 DOM 打补丁</li><li>通过 SameVnode(oldVode, newVode)进行判断，相同时则调用 patchVnode 方法</li><li>patchVnode<ul><li>判断文本节点，直接设置文本</li><li>子节点比较<br>一方不存在是，直接删除或创建<br>两者都有时，执行 updateChildren 函数比较子节点</li></ul></li><li>updateChildren<ul><li>设置新旧 vnode 的头尾指针</li><li>新旧头尾进行比较，循环先中间靠拢（四个角向中间靠拢比较）<br>根据情况调用 patchVnode 进行 patch 重复流程、调用 createElem 创建一个新的节点<br>从哈希表寻找 key 一致的 vNode 节点再分情况操作</li></ul></li></ol><h2 id="vue3-中的-Diff"><a href="#vue3-中的-Diff" class="headerlink" title="vue3 中的 Diff"></a>vue3 中的 Diff</h2><blockquote><p>快速 diff 算法</p></blockquote><p>Vue3 在真正的 diff 之前会执行一段“预处理”的前置操作，目的是先把科一直接排除的项直接去掉</p><ol><li>对比新旧节点头部相同指针的节点，相同则进行 diff，不同就跳转下一步</li><li>新旧节点尾部指针指向的节点，相同则进行 diff，不同就跳转下一步</li><li>此时剩余新旧节点可能存在乱序、一移除、新创建的情况，进行特殊处理来更新<ul><li>增删节点</li><li>diff<br>首先根据新节点剩余内容，跟 key 创建一个 map 映射<br>最长递增子序列 为减少 dom 的操作</li></ul></li></ol><blockquote><p>vue3 牺牲了一部分 js 性能，换来了 dom 渲染的性能</p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>面试题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Vue</tag>
+      
+      <tag>Diff</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>

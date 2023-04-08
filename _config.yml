@@ -3,13 +3,29 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
-keywords:
-author: John Doe
-language: en
+title: 小懒虫&
+subtitle: '这是端介绍'
+description: '12321313131'
+keywords: '313112131'
+author: xiaolanchong
+language: zh-CN
 timezone: ''
+
+navbar:
+  blog_title: 博客标题
+
+# 网页访问统计
+web_analytics:
+  enable: true # 默认为false，启用网页统计改为true即可
+  baidu: 8e145417549069d68c7548fa3182417c
+
+#
+footer:
+  statistics:
+    enable: false
+    source: 'busuanzi' # 可选 leancloud | busuanzi  根据自己需求选择
+    pv_format: '总访问量 {} 次' # 显示的文本，{}是数字的占位符（必须包含)，下同
+    uv_format: '总访客数 {} 人'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -40,7 +56,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
@@ -97,11 +113,13 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+## https://github.com/fluid-dev/hexo-theme-fluid
+theme: fluid
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
   repo: https://github.com/xwxlc/xiaolanchong.githug.io
-  branch: main
+  branch: docs
+  message: '2023-04-08'
