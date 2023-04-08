@@ -10,6 +10,67 @@ author: xiaolanchong
 language: zh-CN
 timezone: ''
 
+# 网页访问统计
+web_analytics:
+  enable: true # 默认为false，启用网页统计改为true即可
+  baidu: 8e145417549069d68c7548fa3182417c
+  leancloud: # LeanCloud 计数统计，可用于 PV UV 展示，如果 web_analytics.enable 没有开启，PV UV 展示只会查询，不会增加
+    app_id: sfhmsAEo3ILBYEEFQCsNuCSt-gzGzoHsz
+    app_key: rOmFiyaAbN5I9khsfQrcmvWZ
+    server_url: https://sfhmsaeo.lc-cn-n1-shared.com # REST API 服务器地址，国际版不填
+
+index:
+  slogan:
+    enable: true
+    text: '' #默认读取subtitle
+    # api:
+    #   enable: false
+    #   url: 'https://v1.hitokoto.cn/'
+    #   method: 'GET'
+    #   headers: {}
+    #   keys: ['hitokoto']
+
+post:
+  meta:
+    author: # 作者，优先根据 front-matter 里 author 字段，其次是 hexo 配置中 author 值
+      enable: false
+    date: # 文章日期，优先根据 front-matter 里 date 字段，其次是 md 文件日期
+      enable: false
+      format: 'dddd, MMMM Do YYYY, h:mm a' # 格式参照 ISO-8601 日期格式化
+    wordcount: # 字数统计
+      enable: true
+      format: '{} 字' # 显示的文本，{}是数字的占位符（必须包含)，下同
+    min2read: # 阅读时间
+      enable: true
+      format: '{} 分钟'
+    views: # 阅读次数
+      enable: true
+      source: 'leancloud' # 统计数据来源，可选：leancloud | busuanzi   注意不蒜子会间歇抽风
+      format: '{} 次'
+
+navbar:
+  blog_title: '小懒虫&'
+  menu:
+    - { key: 'home', link: '/', icon: 'iconfont icon-home-fill', name: '首页' }
+    - { key: 'archives', link: '/archives', icon: 'iconfont icon-archive-fill', name: '归档' }
+    - { key: 'categories', link: '/categories', icon: 'iconfont icon-category-fill', name: '分类' }
+    - { key: 'tag', link: '/tags/', icon: 'iconfont icon-tags-fill', name: '标签' }
+    - { key: 'about', link: '/about/', icon: 'iconfont icon-user-fill', name: '关于' }
+    - { key: 'about', link: '/about/', icon: 'iconfont icon-user-fill', name: '联系我' }
+    - { key: 'links', link: '/links/', icon: 'iconfont icon-link-fill', name: '友情链接' }
+
+links:
+  items:
+    - { title: '小懒虫&', intro: '我的GitHub', link: 'https://github.com/xwxlc', avatar: '/img/favicon.png' }
+
+footer:
+  statistics:
+    enable: true
+    source: 'leancloud' # 可选 leancloud | busuanzi  根据自己需求选择
+    pv_format: '总访问量 {} 次' # 显示的文本，{}是数字的占位符（必须包含)，下同
+    uv_format: '总访客数 {} 人'
+  content: '<a href="https://github.com/xwxlc">小懒虫&的博客 | 记录成长的过程</a>'
+
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://xwxlc.github.io/xiaolanchong.githug.io/
