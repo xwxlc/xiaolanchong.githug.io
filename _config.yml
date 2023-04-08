@@ -115,11 +115,10 @@ ignore:
 ## Themes: https://hexo.io/themes/
 ## https://github.com/fluid-dev/hexo-theme-fluid
 theme: fluid
-
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
-deploy:
-  type: git
-  repo: https://github.com/xwxlc/xiaolanchong.githug.io
-  branch: docs
-  message: '2023-04-08'
+# deploy:
+#   type: git
+#   repo: https://github.com/xwxlc/xiaolanchong.githug.io
+#   branch: docs
+#   message: '2023-04-08'
