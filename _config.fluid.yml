@@ -57,7 +57,7 @@ navbar:
     - { key: 'categories', link: '/categories', icon: 'iconfont icon-category-fill', name: '分类' }
     - { key: 'tag', link: '/tags/', icon: 'iconfont icon-tags-fill', name: '标签' }
     # - { key: 'about', link: '/about/', icon: 'iconfont icon-user-fill', name: '关于' }
-    - { key: 'about', link: '/about/', icon: 'iconfont icon-user-fill', name: '联系我' }
+    # - { key: 'about', link: '/about/', icon: 'iconfont icon-user-fill', name: '联系我' }
     - { key: 'links', link: '/links/', icon: 'iconfont icon-link-fill', name: '友情链接' }
 
 links:
