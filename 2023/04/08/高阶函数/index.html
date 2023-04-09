@@ -24,7 +24,7 @@
 <meta property="og:description" content="高阶函数 在数学和计算机科学中，高阶函数是至少满足下列一个条件的函数   接受一个或多个函数作为输入 接受一个或多个函数作为参数传入 如：Array.prototype.map()和 Array,prototype.filter()   输出一个函数。 输出一个函数 如：debuonce 和 throttle    123456789101112131415161718192021222324fu">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-04-08T10:28:45.000Z">
-<meta property="article:modified_time" content="2023-04-08T11:14:11.916Z">
+<meta property="article:modified_time" content="2023-04-09T03:03:18.862Z">
 <meta property="article:author" content="xiaolanchong">
 <meta property="article:tag" content="函数组合">
 <meta property="article:tag" content="柯里化函数">
@@ -260,7 +260,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          580 字
+          3.1k 字
         
       </span>
     
@@ -272,7 +272,7 @@
         
         
           <!-- compatible with older versions-->
-          5 分钟
+          26 分钟
         
       </span>
     
@@ -341,15 +341,44 @@
 <h1 id="函数组合"><a href="#函数组合" class="headerlink" title="函数组合"></a>函数组合</h1><blockquote>
 <p>函数组合就是将两个或两个以上的函数组合生成一个新函数的过程：</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">composeFn</span>(<span class="hljs-params">f, g</span>) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-title function_">f</span>(<span class="hljs-title function_">g</span>(x));<br>  &#125;;<br>&#125;<br><span class="hljs-comment">// 在以上代码中，f 和 g 都是函数，而 x 是组合生成新函数的参数。</span><br></code></pre></td></tr></table></figure>
 
-<h1 id="柯里化函数"><a href="#柯里化函数" class="headerlink" title="柯里化函数"></a>柯里化函数</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>但在项目开发中，为了实现函数的复用，我们通常会尽量保证函数职责的单一性，我们需要对单一函数进行自由的组合来实现需要的夯实<font color= "#FFFF00">（需要多少个函数组合是未知的）</font></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">compose</span>(<span class="hljs-params">...fns</span>) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) &#123;<br>    <span class="hljs-keyword">return</span> fns.<span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">arg, fn</span>) =&gt;</span> &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-title function_">fn</span>(arg);<br>    &#125;, x);<br>  &#125;;<br>&#125;<br><span class="hljs-comment">// 在以上的代码中，我们通过 Array.prototype.reduce 方法来实现组合函数的调度，对应的执行顺序是从左到右。不过如果你想从右往左开始执行的话，这时你就可以使用 Array.prototype.reduceRight 方法来实现。</span><br></code></pre></td></tr></table></figure>
 
-<h1 id="偏函数"><a href="#偏函数" class="headerlink" title="偏函数"></a>偏函数</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br></code></pre></td></tr></table></figure>
+<h1 id="柯里化函数"><a href="#柯里化函数" class="headerlink" title="柯里化函数"></a>柯里化函数</h1><blockquote>
+<p>柯里化（Currying）是一种处理函数中含有多个参数的方法，并在只允许单一参数的框架中使用这些函数。这种转变是现在被称为 “柯里化” 的过程，在这个过程中我们能把一个带有多个参数的函数转换成一系列的嵌套函数。它返回一个新函数，这个新函数期望传入下一个参数。当接收足够的参数后，会自动执行原函数。<font color="#FFFF00">这里需要特别注意的是，在数学和理论计算机科学中的柯里化函数，一次只能传递一个参数。而对于 JavaScript 语言来说，在实际应用中的柯里化函数，可以传递一个或多个参数。</font></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">curry</span>(<span class="hljs-params">fn</span>) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">curried</span>(<span class="hljs-params">...args</span>) &#123;<br>    <span class="hljs-keyword">if</span> (args.<span class="hljs-property">length</span> &gt;= fn.<span class="hljs-property">length</span>) &#123;<br>      <span class="hljs-keyword">return</span> fn.<span class="hljs-title function_">apply</span>(<span class="hljs-variable language_">this</span>, args);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> (<span class="hljs-params">...args2</span>) &#123;<br>        <span class="hljs-keyword">return</span> curried.<span class="hljs-title function_">apply</span>(<span class="hljs-variable language_">this</span>, args.<span class="hljs-title function_">concat</span>(args2));<br>      &#125;;<br>    &#125;<br>  &#125;;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h1 id="惰性函数"><a href="#惰性函数" class="headerlink" title="惰性函数"></a>惰性函数</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br></code></pre></td></tr></table></figure>
+<h1 id="偏函数"><a href="#偏函数" class="headerlink" title="偏函数"></a>偏函数</h1><blockquote>
+<p>在计算机科学中，偏函数应用（Partial Application）是指固定一个函数的某些参数，然后产生另一个更小元的函数。而所谓的元是指函数参数的个数，比如含有一个参数的函数被称为一元函数。</p>
+</blockquote>
+<blockquote>
+<p>偏函数应用（Partial Application）很容易与函数柯里化混淆，它们之间的区别是：</p>
+</blockquote>
+<ul>
+<li>偏函数应用是固定一个函数的一个或多个参数，并返回一个可以接收剩余参数的函数；</li>
+<li>柯里化是将函数转化为多个嵌套的一元函数，也就是每个函数只接收一个参数。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">partial</span>(<span class="hljs-params">fn</span>) &#123;<br>  <span class="hljs-keyword">const</span> args = [].<span class="hljs-property">slice</span>.<span class="hljs-title function_">call</span>(<span class="hljs-variable language_">arguments</span>, <span class="hljs-number">1</span>);<br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">const</span> newArgs = args.<span class="hljs-title function_">concat</span>([].<span class="hljs-property">slice</span>.<span class="hljs-title function_">call</span>(<span class="hljs-variable language_">arguments</span>));<br>    <span class="hljs-keyword">return</span> fn.<span class="hljs-title function_">apply</span>(<span class="hljs-variable language_">this</span>, newArgs);<br>  &#125;;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h1 id="缓存函数"><a href="#缓存函数" class="headerlink" title="缓存函数"></a>缓存函数</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br></code></pre></td></tr></table></figure>
+<h1 id="惰性函数"><a href="#惰性函数" class="headerlink" title="惰性函数"></a>惰性函数</h1><blockquote>
+<p>由于不同浏览器之间存在一些兼容性问题，这导致了我们在使用一些 Web API 时，需要进行判断，比如：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">addHandler</span>(<span class="hljs-params">element, type, handler</span>) &#123;<br>  <span class="hljs-keyword">if</span> (element.<span class="hljs-property">addEventListner</span>) &#123;<br>    element.<span class="hljs-title function_">addEventListner</span>(type, handler, <span class="hljs-literal">false</span>);<br>  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (element.<span class="hljs-property">attachEvent</span>) &#123;<br>    element.<span class="hljs-title function_">attachEvent</span>(<span class="hljs-string">`on<span class="hljs-subst">$&#123;type&#125;</span>`</span>, handler);<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    element[<span class="hljs-string">`on<span class="hljs-subst">$&#123;type&#125;</span>`</span>] = handler;<br>  &#125;<br>&#125;<br><span class="hljs-comment">// 在以上代码中，我们实现了不同浏览器 添加事件监听 的处理。代码实现起来也很简单，但存在一个问题，即每次调用的时候都需要进行判断，很明显这是不合理的。对于上述这个问题，我们可以通过惰性载入函数来解决。</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>惰性载入函数</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> addHandler = (<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">document</span>.<span class="hljs-property">addEventListner</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> (<span class="hljs-params">element, type, handler</span>) &#123;<br>      element.<span class="hljs-title function_">addEventListner</span>(type, handler, <span class="hljs-literal">false</span>);<br>    &#125;;<br>  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">document</span>.<span class="hljs-property">attachEvent</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> (<span class="hljs-params">element, type, handler</span>) &#123;<br>      element.<span class="hljs-title function_">attachEvent</span>(<span class="hljs-string">`on<span class="hljs-subst">$&#123;type&#125;</span>`</span>, handler);<br>    &#125;;<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> (<span class="hljs-params">element, type, handler</span>) &#123;<br>      element[<span class="hljs-string">`on<span class="hljs-subst">$&#123;type&#125;</span>`</span>] = handler;<br>    &#125;;<br>  &#125;<br>&#125;)();<br></code></pre></td></tr></table></figure>
+
+<h1 id="缓存函数"><a href="#缓存函数" class="headerlink" title="缓存函数"></a>缓存函数</h1><blockquote>
+<p>缓存函数是将函数的计算结果缓存起来，当下次以同样的参数调用该函数时，直接返回已缓存的结果，而无需再次执行函数。这是一种常见的以空间换时间的性能优化手段。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">memorize</span>(<span class="hljs-params">fn</span>) &#123;<br>  <span class="hljs-keyword">const</span> cache = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>(<span class="hljs-literal">null</span>); <span class="hljs-comment">// 存储缓存数据的对象</span><br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> (<span class="hljs-params">...args</span>) &#123;<br>    <span class="hljs-keyword">const</span> _args = <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(args);<br>    <span class="hljs-keyword">return</span> cache[_args] || (cache[_args] = fn.<span class="hljs-title function_">apply</span>(fn, args));<br>  &#125;;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
