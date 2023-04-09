@@ -16,24 +16,22 @@
   <meta name="author" content="xiaolanchong">
   <meta name="keywords" content="小懒虫&amp; 博客">
   
-    <meta name="description" content="什么是双向数据绑定简单来说就是数据层和视图层之间实现相互绑定也就是说视图发生变化数据会发生变化，同理数据发生变化视图也会发生相应的改变 双向数据绑定的原理（MVVM） M 数据层 V 视图层 VM 业务处理层（核心层） 监听器 Obsever 对所有数据的属性进行监听 解析器 Compiler 对每个元素节点进行解析    如何实现双向绑定 初始化 对 data 执行响应处理 Obsever 同时">
+    <meta name="description" content="引言相信在面试的时候小伙伴们都被问过 event loop。event loop 在前端是个比较重要的知识点，它涉及到一个代码执行循序的问题。  想必在接触前端的时候老师们都说过 setTimeout 会在其他代码执行后最后再执行  12345setTimeout(() &#x3D;&gt; &amp;#123;  console.log(1);&amp;#125;, 0);console.log(2);&#x2F;&#x2F; 输出循序是">
 <meta property="og:type" content="article">
-<meta property="og:title" content="双向数据绑定">
-<meta property="og:url" content="https://xwxlc.github.io/xiaolanchong.githug.io/2023/04/07/%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/index.html">
+<meta property="og:title" content="事件循环">
+<meta property="og:url" content="https://xwxlc.github.io/xiaolanchong.githug.io/2023/04/09/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/index.html">
 <meta property="og:site_name" content="小懒虫&amp;">
-<meta property="og:description" content="什么是双向数据绑定简单来说就是数据层和视图层之间实现相互绑定也就是说视图发生变化数据会发生变化，同理数据发生变化视图也会发生相应的改变 双向数据绑定的原理（MVVM） M 数据层 V 视图层 VM 业务处理层（核心层） 监听器 Obsever 对所有数据的属性进行监听 解析器 Compiler 对每个元素节点进行解析    如何实现双向绑定 初始化 对 data 执行响应处理 Obsever 同时">
+<meta property="og:description" content="引言相信在面试的时候小伙伴们都被问过 event loop。event loop 在前端是个比较重要的知识点，它涉及到一个代码执行循序的问题。  想必在接触前端的时候老师们都说过 setTimeout 会在其他代码执行后最后再执行  12345setTimeout(() &#x3D;&gt; &amp;#123;  console.log(1);&amp;#125;, 0);console.log(2);&#x2F;&#x2F; 输出循序是">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://xwxlc.github.io/xiaolanchong.githug.io/images/%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A.png">
-<meta property="article:published_time" content="2023-04-07T12:00:00.000Z">
-<meta property="article:modified_time" content="2023-04-08T04:44:41.775Z">
+<meta property="article:published_time" content="2023-04-09T04:16:34.000Z">
+<meta property="article:modified_time" content="2023-04-09T08:17:55.909Z">
 <meta property="article:author" content="xiaolanchong">
-<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://xwxlc.github.io/xiaolanchong.githug.io/images/%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A.png">
   
   
   
-  <title>双向数据绑定 - 小懒虫&amp;</title>
+  <title>事件循环 - 小懒虫&amp;</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -229,7 +227,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="双向数据绑定"></span>
+            <span id="subtitle" data-typed-text="事件循环"></span>
           
         </div>
 
@@ -246,7 +244,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          352 字
+          1.4k 字
         
       </span>
     
@@ -258,7 +256,7 @@
         
         
           <!-- compatible with older versions-->
-          3 分钟
+          12 分钟
         
       </span>
     
@@ -304,29 +302,83 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">双向数据绑定</h1>
+            <h1 style="display: none">事件循环</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="什么是双向数据绑定"><a href="#什么是双向数据绑定" class="headerlink" title="什么是双向数据绑定"></a>什么是双向数据绑定</h2><p>简单来说就是数据层和视图层之间实现相互绑定<br>也就是说视图发生变化数据会发生变化，同理数据发生变化视图也会发生相应的改变</p>
-<h2 id="双向数据绑定的原理（MVVM）"><a href="#双向数据绑定的原理（MVVM）" class="headerlink" title="双向数据绑定的原理（MVVM）"></a>双向数据绑定的原理（MVVM）</h2><ul>
-<li>M 数据层</li>
-<li>V 视图层</li>
-<li>VM 业务处理层（核心层）<ul>
-<li>监听器 Obsever 对所有数据的属性进行监听</li>
-<li>解析器 Compiler 对每个元素节点进行解析</li>
-</ul>
+                <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>相信在面试的时候小伙伴们都被问过 event loop。event loop 在前端是个比较重要的知识点，它涉及到一个代码执行循序的问题。</p>
+<blockquote>
+<p>想必在接触前端的时候老师们都说过 setTimeout 会在其他代码执行后最后再执行</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">1</span>);<br>&#125;, <span class="hljs-number">0</span>);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">2</span>);<br><span class="hljs-comment">// 输出循序是 2、1</span><br></code></pre></td></tr></table></figure>
+
+<p>上述代码：那这又是为什么呢？</p>
+<p>这就引出了今天我们要学习的问题 event loop</p>
+<h1 id="为什么会有-event-loop"><a href="#为什么会有-event-loop" class="headerlink" title="为什么会有 event loop"></a>为什么会有 event loop</h1><blockquote>
+<p>因为 js 是单线程的，如果某段程序需要等待一会再执行，后面的程序都会被阻塞，这样也就带来了一些问题。为了解决这个问题，js 出现了同步和异步两种任务，两种任务的差异就在于执行的优先级不同。event loop 就是对任务的执行顺序做了详细的规范。</p>
+</blockquote>
+<h1 id="同步和异步任务"><a href="#同步和异步任务" class="headerlink" title="同步和异步任务"></a>同步和异步任务</h1><blockquote>
+<p>异步任务：异步任务分为宏任务和微任务</p>
+</blockquote>
+<ul>
+<li>常见的微任务有:<ol>
+<li>Promise.then catch finally</li>
+<li>Object.observe</li>
+<li>MutationObserver</li>
+<li>process.nextTick（node 环境）</li>
+</ol>
+</li>
+<li>常见的宏任务有:<ol>
+<li>script</li>
+<li>setTimeout</li>
+<li>setInterval</li>
+<li>postMessage</li>
+<li>setImmediate（node 环境)</li>
+<li>ajax</li>
+<li>DOM 事件</li>
+</ol>
 </li>
 </ul>
-<h2 id="如何实现双向绑定"><a href="#如何实现双向绑定" class="headerlink" title="如何实现双向绑定"></a>如何实现双向绑定</h2><ul>
-<li>初始化 对 data 执行响应处理 Obsever</li>
-<li>同时对模版执行编译从 data 中获取动态数据，并初始化视图 Compiler</li>
-<li>同时定义一个更新函数和 Watcher 将来对象数据发生变化时 Watcher 会调用更新函数</li>
-<li>由于 data 的某个属性 key 在视图中可能出现多次，所以每个 key 都需要有一个 Dep 来管理多个 Watcher</li>
-<li>将来 data 中数据一旦发生变化，会首先找到对应的 Dep 通知所有的 Watcher 执行更新函数</li>
-</ul>
-<p><img src="/xiaolanchong.githug.io/images/%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A.png" srcset="/xiaolanchong.githug.io/img/loading.gif" lazyload alt="双向数据绑定原理"></p>
+<h1 id="任务的执行顺序"><a href="#任务的执行顺序" class="headerlink" title="任务的执行顺序"></a>任务的执行顺序</h1><blockquote>
+<p>先到后：同步任务 -&gt; 微任务 -&gt; 宏任务。</p>
+</blockquote>
+<h1 id="任务在哪里执行"><a href="#任务在哪里执行" class="headerlink" title="任务在哪里执行"></a>任务在哪里执行</h1><p>前面说到 js 是单线程的，所以</p>
+<blockquote>
+<p>无论是同步任务还是异步任务，都是在主线程执行。</p>
+</blockquote>
+<h1 id="什么是-event-loop"><a href="#什么是-event-loop" class="headerlink" title="什么是 event loop"></a>什么是 event loop</h1><p>事件循环（event loop）就是任务在主线程不断进栈出栈的一个循环过程。任务会在将要执行时进入主线程，在执行完毕后会退出主线程。</p>
+<blockquote>
+<p>下面是执行步骤</p>
+</blockquote>
+<blockquote>
+<p>同步任务</p>
+</blockquote>
+<ol>
+<li>把同步任务加入同步任务队列</li>
+<li>把同步任务队列的任务加入主线程</li>
+<li>主线程任务执行完毕，主线程队列清空</li>
+</ol>
+<blockquote>
+<p>微任务</p>
+</blockquote>
+<ol start="4">
+<li>把微任务加入微任务队列</li>
+<li>把微任务队列的任务加入主线程</li>
+<li>主线程任务执行完毕，主线程队列清空</li>
+</ol>
+<blockquote>
+<p>宏任务</p>
+</blockquote>
+<ol start="7">
+<li>把宏任务加入宏任务队列，无 time 的先加入，有 time 的按短到长先后加入</li>
+<li>把宏任务队列的任务加入主线程</li>
+<li>主线程任务执行完毕，主线程队列清空</li>
+</ol>
+<h1 id="案例巩固下"><a href="#案例巩固下" class="headerlink" title="案例巩固下"></a>案例巩固下</h1><blockquote>
+<p>执行循序自行研究</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">8</span>);<br>&#125;, <span class="hljs-number">100</span>);<br><span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">5</span>);<br>&#125;, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">const</span> p = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">1</span>);<br>  <span class="hljs-title function_">resolve</span>();<br>&#125;);<br>p.<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">4</span>);<br>&#125;);<br><span class="hljs-keyword">const</span> p2 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">2</span>);<br>  <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-title function_">resolve</span>();<br>  &#125;, <span class="hljs-number">0</span>);<br>&#125;);<br>p2.<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">6</span>);<br>&#125;);<br><span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">7</span>);<br>&#125;, <span class="hljs-number">0</span>);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">3</span>);<br><span class="hljs-comment">// 输出循序是 1,2,3,4,5,6,7,8</span><br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -360,7 +412,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/xiaolanchong.githug.io/tags/Vue/">#Vue</a>
+        <a href="/xiaolanchong.githug.io/tags/JS/">#JS</a>
       
     </div>
   
@@ -372,8 +424,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>双向数据绑定</div>
-      <div>https://xwxlc.github.io/xiaolanchong.githug.io/2023/04/07/什么是双向数据绑定/</div>
+      <div>事件循环</div>
+      <div>https://xwxlc.github.io/xiaolanchong.githug.io/2023/04/09/事件循环/</div>
     </div>
     <div class="license-meta">
       
@@ -385,7 +437,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年4月7日</div>
+          <div>2023年4月9日</div>
         </div>
       
       
@@ -417,15 +469,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/xiaolanchong.githug.io/2023/04/07/Diff%E7%AE%97%E6%B3%95/" title="Diff算法">
+                      <a href="/xiaolanchong.githug.io/2023/04/09/JS%E9%9D%A2%E8%AF%95%E9%A2%98/" title="JS面试题">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Diff算法</span>
+                        <span class="hidden-mobile">JS面试题</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/xiaolanchong.githug.io/2023/04/08/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/" title="高阶函数">
+                        <span class="hidden-mobile">高阶函数</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
