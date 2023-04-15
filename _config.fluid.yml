@@ -1,3 +1,5 @@
+favicon: /images/xiaolanchong.jpeg
+
 # 网页访问统计
 web_analytics:
   enable: true # 默认为false，启用网页统计改为true即可

@@ -55,7 +55,7 @@ keep-alive 是 vue 内部的组件 可以使被包含的组件保留状态，避
 - computed:计算属性,有缓存,当我们需要进行数值计算，并且依赖于其他数据时使用
 - watch:监听,当我们需要异步或开销较大的操作时使用,可以根据需要限制我们操作的频次
 
-{% post_link computed和watch的区别 %}
+{% post_link interview/computed和watch的区别 %}
 
 # 聊聊 nextTick
 
