@@ -7,9 +7,9 @@
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "server": "hexo server",
-    "creat": "hexo new",
-    "creat:draft": "hexo new draft",
-    "publish:draft": "hexo publish draft"
+    "creat": "hexo new post",
+    "draft": "hexo new draft",
+    "publish": "hexo publish draft"
   },
   "hexo": {
     "version": "6.3.0"

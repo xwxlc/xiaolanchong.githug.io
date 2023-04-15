@@ -9,6 +9,7 @@ keywords: '小懒虫& 博客'
 author: xiaolanchong
 language: zh-CN
 timezone: ''
+favicon: /images/xiaolanchong.jpeg
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -39,7 +40,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: true
+post_asset_folder: false
 relative_link: false
 future: true
 highlight:
