@@ -106,4 +106,4 @@ deploy:
   type: git
   repo: https://github.com/xwxlc/xiaolanchong.githug.io
   branch: docs
-  message: '2023-04-16'
+  message: ''
