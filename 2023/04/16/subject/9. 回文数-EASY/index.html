@@ -16,24 +16,22 @@
   <meta name="author" content="xiaolanchong">
   <meta name="keywords" content="小懒虫&amp; 博客">
   
-    <meta name="description" content="什么是双向数据绑定简单来说就是数据层和视图层之间实现相互绑定也就是说视图发生变化数据会发生变化，同理数据发生变化视图也会发生相应的改变 双向数据绑定的原理（MVVM） M 数据层 V 视图层 VM 业务处理层（核心层） 监听器 Obsever 对所有数据的属性进行监听 解析器 Compiler 对每个元素节点进行解析    如何实现双向绑定 初始化 对 data 执行响应处理 Obsever 同时">
+    <meta name="description" content="回文数-EASY力扣题目 方法一判断是否只回文，只需要把结果倒序后和原结果相等就满足回文 解题思路 负数一定不满足 当是 10、20 这类整十的数也一定不满足 首先数字转为字符串 把字符串转换成数组利用 reverse 倒序后重新转为字符串 判断是否相同就可以了  完整代码1234567var isPalindrome &#x3D; function (x) &amp;#123;  if (x &lt; 0 ||">
 <meta property="og:type" content="article">
-<meta property="og:title" content="双向数据绑定">
-<meta property="og:url" content="https://xwxlc.github.io/xiaolanchong.githug.io/2023/04/07/interview/%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/index.html">
+<meta property="og:title" content="9. 回文数-EASY">
+<meta property="og:url" content="https://xwxlc.github.io/xiaolanchong.githug.io/2023/04/16/subject/9.%20%E5%9B%9E%E6%96%87%E6%95%B0-EASY/index.html">
 <meta property="og:site_name" content="小懒虫&amp;">
-<meta property="og:description" content="什么是双向数据绑定简单来说就是数据层和视图层之间实现相互绑定也就是说视图发生变化数据会发生变化，同理数据发生变化视图也会发生相应的改变 双向数据绑定的原理（MVVM） M 数据层 V 视图层 VM 业务处理层（核心层） 监听器 Obsever 对所有数据的属性进行监听 解析器 Compiler 对每个元素节点进行解析    如何实现双向绑定 初始化 对 data 执行响应处理 Obsever 同时">
+<meta property="og:description" content="回文数-EASY力扣题目 方法一判断是否只回文，只需要把结果倒序后和原结果相等就满足回文 解题思路 负数一定不满足 当是 10、20 这类整十的数也一定不满足 首先数字转为字符串 把字符串转换成数组利用 reverse 倒序后重新转为字符串 判断是否相同就可以了  完整代码1234567var isPalindrome &#x3D; function (x) &amp;#123;  if (x &lt; 0 ||">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://xwxlc.github.io/xiaolanchong.githug.io/images/%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A.png">
-<meta property="article:published_time" content="2023-04-07T12:00:00.000Z">
-<meta property="article:modified_time" content="2023-04-07T12:00:00.000Z">
+<meta property="article:published_time" content="2023-04-16T03:25:53.000Z">
+<meta property="article:modified_time" content="2023-04-16T03:25:53.000Z">
 <meta property="article:author" content="xiaolanchong">
-<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="EASY">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://xwxlc.github.io/xiaolanchong.githug.io/images/%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A.png">
   
   
   
-  <title>双向数据绑定 - 小懒虫&amp;</title>
+  <title>9. 回文数-EASY - 小懒虫&amp;</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -229,7 +227,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="双向数据绑定"></span>
+            <span id="subtitle" data-typed-text="9. 回文数-EASY"></span>
           
         </div>
 
@@ -246,7 +244,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          352 字
+          1k 字
         
       </span>
     
@@ -258,7 +256,7 @@
         
         
           <!-- compatible with older versions-->
-          3 分钟
+          9 分钟
         
       </span>
     
@@ -304,29 +302,32 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">双向数据绑定</h1>
+            <h1 style="display: none">9. 回文数-EASY</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="什么是双向数据绑定"><a href="#什么是双向数据绑定" class="headerlink" title="什么是双向数据绑定"></a>什么是双向数据绑定</h2><p>简单来说就是数据层和视图层之间实现相互绑定<br>也就是说视图发生变化数据会发生变化，同理数据发生变化视图也会发生相应的改变</p>
-<h2 id="双向数据绑定的原理（MVVM）"><a href="#双向数据绑定的原理（MVVM）" class="headerlink" title="双向数据绑定的原理（MVVM）"></a>双向数据绑定的原理（MVVM）</h2><ul>
-<li>M 数据层</li>
-<li>V 视图层</li>
-<li>VM 业务处理层（核心层）<ul>
-<li>监听器 Obsever 对所有数据的属性进行监听</li>
-<li>解析器 Compiler 对每个元素节点进行解析</li>
-</ul>
-</li>
-</ul>
-<h2 id="如何实现双向绑定"><a href="#如何实现双向绑定" class="headerlink" title="如何实现双向绑定"></a>如何实现双向绑定</h2><ul>
-<li>初始化 对 data 执行响应处理 Obsever</li>
-<li>同时对模版执行编译从 data 中获取动态数据，并初始化视图 Compiler</li>
-<li>同时定义一个更新函数和 Watcher 将来对象数据发生变化时 Watcher 会调用更新函数</li>
-<li>由于 data 的某个属性 key 在视图中可能出现多次，所以每个 key 都需要有一个 Dep 来管理多个 Watcher</li>
-<li>将来 data 中数据一旦发生变化，会首先找到对应的 Dep 通知所有的 Watcher 执行更新函数</li>
-</ul>
-<p><img src="/xiaolanchong.githug.io/images/%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A.png" srcset="/xiaolanchong.githug.io/img/loading.gif" lazyload alt="双向数据绑定原理"></p>
+                <h1 id="回文数-EASY"><a href="#回文数-EASY" class="headerlink" title="回文数-EASY"></a>回文数-EASY</h1><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/palindrome-number/">力扣题目</a></p>
+<h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><p>判断是否只回文，只需要把结果倒序后和原结果相等就满足回文</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><ol>
+<li>负数一定不满足</li>
+<li>当是 10、20 这类整十的数也一定不满足</li>
+<li>首先数字转为字符串</li>
+<li>把字符串转换成数组利用 reverse 倒序后重新转为字符串</li>
+<li>判断是否相同就可以了</li>
+</ol>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> isPalindrome = <span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) &#123;<br>  <span class="hljs-keyword">if</span> (x &lt; <span class="hljs-number">0</span> || (x % <span class="hljs-number">10</span> == <span class="hljs-number">0</span> &amp;&amp; x != <span class="hljs-number">0</span>)) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>  &#125;<br>  <span class="hljs-keyword">const</span> xArr = x.<span class="hljs-title function_">toString</span>().<span class="hljs-title function_">split</span>(<span class="hljs-string">&#x27;&#x27;</span>);<br>  <span class="hljs-keyword">return</span> xArr.<span class="hljs-title function_">toString</span>() == xArr.<span class="hljs-title function_">reverse</span>().<span class="hljs-title function_">toString</span>();<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h1 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h1><p>方法一是把数组转换类型后判断得到结果的。如果我们想只利用 number 类型 之间的比较来实现呢？以 123 举例</p>
+<ol>
+<li>3 &#x3D;&gt; 32 &gt; 321 我们需要这么一个过程组合的过程</li>
+<li>当前值*10+原数字对应位数字</li>
+<li>但是我们真的需要得到最终的 321 再进行比较吗？</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> isPalindrome = <span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) &#123;<br>  <span class="hljs-keyword">if</span> (x &lt; <span class="hljs-number">0</span> || (x % <span class="hljs-number">10</span> == <span class="hljs-number">0</span> &amp;&amp; x != <span class="hljs-number">0</span>)) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>  &#125;<br>  <span class="hljs-keyword">let</span> reverseNumber = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">let</span> oldX = x;<br>  <span class="hljs-keyword">while</span> (reverseNumber &lt; x) &#123;<br>    reverseNumber = reverseNumber * <span class="hljs-number">10</span> + (oldX % <span class="hljs-number">10</span>);<br>    oldX = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(oldX / <span class="hljs-number">10</span>);<br>  &#125;<br>  <span class="hljs-keyword">return</span> x == reverseNumber;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h2 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h2><p>但上面处理视乎有点多余了，那我们对上述代码进行点简单的优化。</p>
+<h2 id="完整代码-1"><a href="#完整代码-1" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> isPalindrome = <span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) &#123;<br>  <span class="hljs-keyword">if</span> (x &lt; <span class="hljs-number">0</span> || (x % <span class="hljs-number">10</span> == <span class="hljs-number">0</span> &amp;&amp; x != <span class="hljs-number">0</span>)) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>  &#125;<br>  <span class="hljs-keyword">let</span> reverseNumber = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">while</span> (reverseNumber &lt; x) &#123;<br>    reverseNumber = reverseNumber * <span class="hljs-number">10</span> + (x % <span class="hljs-number">10</span>);<br>    x = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(x / <span class="hljs-number">10</span>);<br>  &#125;<br>  <span class="hljs-keyword">return</span> x == reverseNumber || x == <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(reverseNumber / <span class="hljs-number">10</span>);<br>&#125;;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -345,7 +346,7 @@
     
       <span class="category-chain">
         
-  <a href="/xiaolanchong.githug.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="category-chain-item">面试题</a>
+  <a href="/xiaolanchong.githug.io/categories/%E7%AE%97%E6%B3%95%E9%A2%98/" class="category-chain-item">算法题</a>
   
   
 
@@ -360,7 +361,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/xiaolanchong.githug.io/tags/Vue/">#Vue</a>
+        <a href="/xiaolanchong.githug.io/tags/EASY/">#EASY</a>
       
     </div>
   
@@ -372,8 +373,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>双向数据绑定</div>
-      <div>https://xwxlc.github.io/xiaolanchong.githug.io/2023/04/07/interview/什么是双向数据绑定/</div>
+      <div>9. 回文数-EASY</div>
+      <div>https://xwxlc.github.io/xiaolanchong.githug.io/2023/04/16/subject/9. 回文数-EASY/</div>
     </div>
     <div class="license-meta">
       
@@ -385,7 +386,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年4月7日</div>
+          <div>2023年4月16日</div>
         </div>
       
       
@@ -417,15 +418,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/xiaolanchong.githug.io/2023/04/07/interview/Diff%E7%AE%97%E6%B3%95/" title="Diff算法">
+                      <a href="/xiaolanchong.githug.io/2023/04/16/subject/13.%20%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0-EASY/" title="13. 罗马数字转整数-EASY">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Diff算法</span>
+                        <span class="hidden-mobile">13. 罗马数字转整数-EASY</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/xiaolanchong.githug.io/2023/04/16/subject/5.%20%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-MIDIUM/" title="5. 最长回文子串-MIDIUM">
+                        <span class="hidden-mobile">5. 最长回文子串-MIDIUM</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
