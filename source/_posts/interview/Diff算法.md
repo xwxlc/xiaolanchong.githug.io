@@ -1,8 +1,12 @@
 ---
 title: Diff算法
+categories:
+  - 面试题
+tags:
+  - Vue
+  - Diff
 date: 2023-04-07 21:00:00
-categories: [面试题]
-tags: [Vue, Diff]
+updated:
 ---
 
 ## 1、首先什么是虚拟 DOM?

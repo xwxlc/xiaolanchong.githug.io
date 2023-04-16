@@ -1,8 +1,10 @@
 ---
 title: JS面试题
+categories:
+  - 面试题
+tags:
+  - JS
 date: 2023-04-09 16:23:28
-categories: [面试题]
-tags: [JS]
 updated:
 ---
 

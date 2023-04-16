@@ -1,8 +1,11 @@
 ---
 title: computed和watch的区别
+categories:
+  - 面试题
+tags:
+  - Vue
 date: 2023-04-08 16:44:18
-categories: [面试题]
-tags: [Vue]
+updated:
 ---
 
 # watch

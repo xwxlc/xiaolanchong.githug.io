@@ -9,6 +9,7 @@
     "server": "hexo server",
     "creat": "hexo new post",
     "draft": "hexo new draft",
+    "subject": "hexo new subject",
     "publish": "hexo publish draft"
   },
   "hexo": {

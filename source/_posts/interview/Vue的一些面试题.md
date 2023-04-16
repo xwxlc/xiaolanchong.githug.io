@@ -1,8 +1,11 @@
 ---
 title: Vue的一些面试题
+categories:
+  - 面试题
+tags:
+  - Vue
 date: 2023-04-08 16:03:29
-categories: [面试题]
-tags: [Vue]
+updated:
 ---
 
 # Vue 的生命周期

@@ -1,7 +1,8 @@
 ---
 title: {{ title }}
-date: {{ date }}
 categories: []
 tags: []
+date: {{ date }}
+updated: 
 hide: true
 ---
