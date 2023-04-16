@@ -16,22 +16,22 @@
   <meta name="author" content="xiaolanchong">
   <meta name="keywords" content="小懒虫&amp; 博客">
   
-    <meta name="description" content="两数相加-MEDIUM力扣题目 方法一 右查法首先想到个笨办法，既然是得到无重复字符的最长子串，那么我们可以想办法获取每个位置开始的最长子串，进行比较获的最大值子串。 接下来我们进行代码上的实现和简单优化 解题思路 遍历字符串得到每个开始位置 i 再次从 i 开始遍历字符串，得到最长子串 并保存在 temp 中 判断是否是最大长度，更新结果  完整代码12345678910111213141516">
+    <meta name="description" content="最长回文子串-MEDIUM力扣题目 方法一 中心扩展算法首先如何判断是回文字符串。然后不断的向两端扩展  奇数情况 长度&#x3D;1 一定是 并且 s[i-n] &#x3D;&#x3D; s[i+n] 偶数情况 s[i-1] &#x3D; s[i+1] 并且 s[i-n] &#x3D;&#x3D; s[i+1+n]  解题思路 首先建立一个扩展方法，传入 left,right 计算后 返回新的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="3. 无重复字符的最长子串-MIDIUM">
-<meta property="og:url" content="https://xwxlc.github.io/xiaolanchong.githug.io/2023/04/16/subject/3.%20%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-MIDIUM/index.html">
+<meta property="og:title" content="5. 最长回文子串-MEDIUM">
+<meta property="og:url" content="https://xwxlc.github.io/xiaolanchong.githug.io/2023/04/16/subject/5.%20%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-MEDIUM/index.html">
 <meta property="og:site_name" content="小懒虫&amp;">
-<meta property="og:description" content="两数相加-MEDIUM力扣题目 方法一 右查法首先想到个笨办法，既然是得到无重复字符的最长子串，那么我们可以想办法获取每个位置开始的最长子串，进行比较获的最大值子串。 接下来我们进行代码上的实现和简单优化 解题思路 遍历字符串得到每个开始位置 i 再次从 i 开始遍历字符串，得到最长子串 并保存在 temp 中 判断是否是最大长度，更新结果  完整代码12345678910111213141516">
+<meta property="og:description" content="最长回文子串-MEDIUM力扣题目 方法一 中心扩展算法首先如何判断是回文字符串。然后不断的向两端扩展  奇数情况 长度&#x3D;1 一定是 并且 s[i-n] &#x3D;&#x3D; s[i+n] 偶数情况 s[i-1] &#x3D; s[i+1] 并且 s[i-n] &#x3D;&#x3D; s[i+1+n]  解题思路 首先建立一个扩展方法，传入 left,right 计算后 返回新的">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-04-16T01:40:31.000Z">
-<meta property="article:modified_time" content="2023-04-16T01:40:31.000Z">
+<meta property="article:published_time" content="2023-04-16T02:36:27.000Z">
+<meta property="article:modified_time" content="2023-04-16T02:36:27.000Z">
 <meta property="article:author" content="xiaolanchong">
 <meta property="article:tag" content="MEDIUM">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>3. 无重复字符的最长子串-MIDIUM - 小懒虫&amp;</title>
+  <title>5. 最长回文子串-MEDIUM - 小懒虫&amp;</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -227,7 +227,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="3. 无重复字符的最长子串-MIDIUM"></span>
+            <span id="subtitle" data-typed-text="5. 最长回文子串-MEDIUM"></span>
           
         </div>
 
@@ -244,7 +244,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.1k 字
+          1.9k 字
         
       </span>
     
@@ -256,7 +256,7 @@
         
         
           <!-- compatible with older versions-->
-          10 分钟
+          16 分钟
         
       </span>
     
@@ -302,34 +302,39 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">3. 无重复字符的最长子串-MIDIUM</h1>
+            <h1 style="display: none">5. 最长回文子串-MEDIUM</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="两数相加-MEDIUM"><a href="#两数相加-MEDIUM" class="headerlink" title="两数相加-MEDIUM"></a>两数相加-MEDIUM</h1><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-substring-without-repeating-characters/">力扣题目</a></p>
-<h1 id="方法一-右查法"><a href="#方法一-右查法" class="headerlink" title="方法一 右查法"></a>方法一 右查法</h1><p>首先想到个笨办法，既然是得到无重复字符的最长子串，那么我们可以想办法获取每个位置开始的最长子串，进行比较获的最大值子串。</p>
-<p>接下来我们进行代码上的实现和简单优化</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><ol>
-<li>遍历字符串得到每个开始位置 i</li>
-<li>再次从 i 开始遍历字符串，得到最长子串 并保存在 temp 中</li>
-<li>判断是否是最大长度，更新结果</li>
-</ol>
-<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> lengthOfLongestSubstring = <span class="hljs-keyword">function</span> (<span class="hljs-params">s</span>) &#123;<br>  <span class="hljs-keyword">const</span> len = s.<span class="hljs-property">length</span>;<br>  <span class="hljs-keyword">let</span> res = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) &#123;<br>    <span class="hljs-keyword">let</span> temp = <span class="hljs-string">&#x27;&#x27;</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = i; j &lt; len; j++) &#123;<br>      <span class="hljs-keyword">let</span> _s = s[j];<br>      <span class="hljs-keyword">if</span> (temp.<span class="hljs-title function_">indexOf</span>(_s) == -<span class="hljs-number">1</span>) &#123;<br>        temp += _s;<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">break</span>;<br>      &#125;<br>    &#125;<br>    res = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(res, temp.<span class="hljs-property">length</span>);<br>  &#125;<br>  <span class="hljs-keyword">return</span> res;<br>&#125;;<br></code></pre></td></tr></table></figure>
-
-<h1 id="方法二-左查法"><a href="#方法二-左查法" class="headerlink" title="方法二 左查法"></a>方法二 左查法</h1><p>方法一我们每个最长子串都需要从 0 到 max 不到累加得到。<br>现在我们换个思路：<br>如果我们本直接得到上一个重复字符串的位置的话，那我们岂不是就可以快熟的得到最长子串了。<br>当然如何实现的还需要一些以为情况处理</p>
+                <h1 id="最长回文子串-MEDIUM"><a href="#最长回文子串-MEDIUM" class="headerlink" title="最长回文子串-MEDIUM"></a>最长回文子串-MEDIUM</h1><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-palindromic-substring/">力扣题目</a></p>
+<h1 id="方法一-中心扩展算法"><a href="#方法一-中心扩展算法" class="headerlink" title="方法一 中心扩展算法"></a>方法一 中心扩展算法</h1><p>首先如何判断是回文字符串。然后不断的向两端扩展</p>
 <ol>
-<li>如果最大子串就是本事，或最大子串在结尾。这种情况下我们该如何得到字符串的开始位置呢？</li>
-<li>当查询到重复字符位置后得到的字符串，该字符串如何保证内部不存在其他重复字符串呢？</li>
+<li>奇数情况 长度&#x3D;1 一定是 并且 s[i-n] &#x3D;&#x3D; s[i+n]</li>
+<li>偶数情况 s[i-1] &#x3D; s[i+1] 并且 s[i-n] &#x3D;&#x3D; s[i+1+n]</li>
+</ol>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><ol>
+<li>首先建立一个扩展方法，传入 left,right 计算后 返回新的 left,right</li>
+<li>我们已知回文字符串会有 2 种场景, 遍历字符串 同时执行奇数、偶数情况，我们就可以得到两组关系</li>
+<li>判断长度保存最长结果</li>
+</ol>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> expandAroundCenter = <span class="hljs-keyword">function</span> (<span class="hljs-params">s, left, right</span>) &#123;<br>  <span class="hljs-keyword">while</span> (left &gt;= <span class="hljs-number">0</span> &amp;&amp; right &lt; s.<span class="hljs-property">length</span> &amp;&amp; s[left] == s[right]) &#123;<br>    left--;<br>    right++;<br>  &#125;<br>  <span class="hljs-keyword">return</span> [left + <span class="hljs-number">1</span>, right - <span class="hljs-number">1</span>];<br>&#125;;<br><span class="hljs-keyword">var</span> longestPalindrome = <span class="hljs-keyword">function</span> (<span class="hljs-params">s</span>) &#123;<br>  <span class="hljs-keyword">let</span> len = s.<span class="hljs-property">length</span>;<br>  <span class="hljs-keyword">if</span> (len &lt; <span class="hljs-number">2</span>) &#123;<br>    <span class="hljs-keyword">return</span> s;<br>  &#125;<br>  <span class="hljs-keyword">let</span> start = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">let</span> end = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) &#123;<br>    <span class="hljs-keyword">const</span> [l1, r1] = <span class="hljs-title function_">expandAroundCenter</span>(s, i, i);<br>    <span class="hljs-keyword">const</span> [l2, r2] = <span class="hljs-title function_">expandAroundCenter</span>(s, i, i + <span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">if</span> (r1 - l1 &gt; end - start) &#123;<br>      start = l1;<br>      end = r1;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (r2 - l2 &gt; end - start) &#123;<br>      start = l2;<br>      end = r2;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> s.<span class="hljs-title function_">slice</span>(start, end + <span class="hljs-number">1</span>);<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h1 id="方法二-动态规划"><a href="#方法二-动态规划" class="headerlink" title="方法二 动态规划"></a>方法二 动态规划</h1><p>首先我们先要明白一下的规则</p>
+<ol>
+<li>当 一个回文 i<del>j 那么 i+1</del>j-1 也一定满足回文（j-i&gt;&#x3D;3)</li>
+<li>长度&#x3D;&#x3D;1 的话一定是个回文字符串</li>
 </ol>
 <h2 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h2><ol>
-<li>首先创建 map 保存历史[值,下标]的关系表</li>
-<li>创建 left 保存左指针的位置。该指针十分重要，有效的解决上述提到的两个问题</li>
-<li>遍历字符串 当 map 的到了下标并且位置在 left 右边时，说明该下标有效，更新 lefe。i - left 的到长度。</li>
-<li>为什么下标要早 left 右边呢，因为到下标在 left 左边的话，说明中间存在了重复的字符。</li>
-<li>如果 left 一直未被更新过说明 字符串本事就是最终结果</li>
+<li>首先我们需要保持是否满足回文的结果，我们可以利用 二维数组 dp[i][j]</li>
+<li>长度&#x3D;&#x3D;1 一定是个回文字符串, dp[i][i] &#x3D; true;</li>
+<li>接下来我们可以从回文长度 L&#x3D;2 开始判断 直到 L&#x3D;s.length</li>
+<li>确立左右指针，i; j &#x3D; i + L -1;</li>
+<li>s[i] !&#x3D; s[j] 不符合</li>
+<li>s[i] &#x3D;&#x3D; s[j] 时需要判断 s[i+1] &#x3D;&#x3D; s[j-1] 是否符合，当然到 j-i&lt;3 时一定符合</li>
+<li>判断保存最长结果</li>
 </ol>
-<h2 id="完整代码-1"><a href="#完整代码-1" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> lengthOfLongestSubstring = <span class="hljs-keyword">function</span> (<span class="hljs-params">s</span>) &#123;<br>  <span class="hljs-keyword">const</span> len = s.<span class="hljs-property">length</span>;<br>  <span class="hljs-keyword">let</span> map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Map</span>();<br>  <span class="hljs-keyword">let</span> res = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">let</span> left = -<span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) &#123;<br>    <span class="hljs-keyword">let</span> _s = s[i];<br>    <span class="hljs-keyword">if</span> (map.<span class="hljs-title function_">has</span>(_s) &amp;&amp; map.<span class="hljs-title function_">get</span>(_s) &gt;= left) &#123;<br>      left = map.<span class="hljs-title function_">get</span>(_s);<br>    &#125;<br>    res = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(res, i - left);<br>    map.<span class="hljs-title function_">set</span>(_s, i);<br>  &#125;<br>  <span class="hljs-keyword">return</span> res;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h2 id="完整代码-1"><a href="#完整代码-1" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> longestPalindrome = <span class="hljs-keyword">function</span> (<span class="hljs-params">s</span>) &#123;<br>  <span class="hljs-keyword">let</span> len = s.<span class="hljs-property">length</span>;<br>  <span class="hljs-keyword">if</span> (len &lt; <span class="hljs-number">2</span>) &#123;<br>    <span class="hljs-keyword">return</span> s;<br>  &#125;<br>  <span class="hljs-keyword">let</span> begin = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">let</span> maxLen = <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">let</span> dp = [];<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) &#123;<br>    dp[i] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> j = <span class="hljs-number">0</span>; j &lt; len; j++) &#123;<br>      dp[i][j] = <span class="hljs-literal">false</span>;<br>    &#125;<br>  &#125;<br>  <span class="hljs-comment">//   所有长度为一的都是回文字符串;</span><br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) &#123;<br>    dp[i][i] = <span class="hljs-literal">true</span>;<br>  &#125;<br>  <span class="hljs-comment">//   回文的长度</span><br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> L = <span class="hljs-number">2</span>; L &lt;= len; L++) &#123;<br>    <span class="hljs-comment">//   定义左指针</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) &#123;<br>      <span class="hljs-comment">// 定义右指针</span><br>      <span class="hljs-keyword">let</span> j = i + L - <span class="hljs-number">1</span>;<br>      <span class="hljs-keyword">if</span> (j &gt;= len) &#123;<br>        <span class="hljs-keyword">break</span>;<br>      &#125;<br>      <span class="hljs-keyword">if</span> (s[i] != s[j]) &#123;<br>        dp[i][j] = <span class="hljs-literal">false</span>;<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">if</span> (j - i &lt; <span class="hljs-number">3</span>) &#123;<br>          dp[i][j] = <span class="hljs-literal">true</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>          dp[i][j] = dp[i + <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>];<br>        &#125;<br>      &#125;<br>      <span class="hljs-keyword">if</span> (dp[i][j] &amp;&amp; j - i + <span class="hljs-number">1</span> &gt; maxLen) &#123;<br>        maxLen = j - i + <span class="hljs-number">1</span>;<br>        begin = i;<br>      &#125;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> s.<span class="hljs-title function_">slice</span>(begin, begin + maxLen);<br>&#125;;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -375,8 +380,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>3. 无重复字符的最长子串-MIDIUM</div>
-      <div>https://xwxlc.github.io/xiaolanchong.githug.io/2023/04/16/subject/3. 无重复字符的最长子串-MIDIUM/</div>
+      <div>5. 最长回文子串-MEDIUM</div>
+      <div>https://xwxlc.github.io/xiaolanchong.githug.io/2023/04/16/subject/5. 最长回文子串-MEDIUM/</div>
     </div>
     <div class="license-meta">
       
@@ -420,9 +425,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/xiaolanchong.githug.io/2023/04/16/subject/5.%20%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-MIDIUM/" title="5. 最长回文子串-MIDIUM">
+                      <a href="/xiaolanchong.githug.io/2023/04/16/subject/9.%20%E5%9B%9E%E6%96%87%E6%95%B0-EASY/" title="9. 回文数-EASY">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">5. 最长回文子串-MIDIUM</span>
+                        <span class="hidden-mobile">9. 回文数-EASY</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -430,8 +435,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/xiaolanchong.githug.io/2023/04/15/subject/2.%20%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-MEDIUM/" title="2. 两数相加-MEDIUM">
-                        <span class="hidden-mobile">2. 两数相加-MEDIUM</span>
+                      <a href="/xiaolanchong.githug.io/2023/04/16/subject/3.%20%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-MEDIUM/" title="3. 无重复字符的最长子串-MEDIUM">
+                        <span class="hidden-mobile">3. 无重复字符的最长子串-MEDIUM</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
