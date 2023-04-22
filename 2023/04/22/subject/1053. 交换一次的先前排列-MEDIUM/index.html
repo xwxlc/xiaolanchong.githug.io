@@ -16,22 +16,22 @@
   <meta name="author" content="xiaolanchong">
   <meta name="keywords" content="小懒虫&amp; 博客">
   
-    <meta name="description" content="负二进制转换-MEDIUM力扣题目 方法一 模拟进位解题思路 i 为偶数 2 的 i 次方 &#x3D;&#x3D; -2 的 i 次方 i 为奇数 2 的 i 次方 &#x3D;&#x3D; -2 的(i+1)次方 + -2 的 i 次方  完整代码12345678910111213141516171819202122232425262728293031function baseNeg2(n)">
+    <meta name="description" content="交换一次的先前排列-MEDIUM力扣题目 方法一解题思路 小于原数组的最大排序 所以在 length-1 到 0 选择 i 的位置 判断思路 i &gt; i+1 得到 i 的位置 在 length-1 到 i 中寻找 j 的位置 判断思路 j &lt; i 得到 j 的位置  完整代码12345678910111213141516function prevPermOpt(arr) &amp;#123;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1017. 负二进制转换-MEDIUM">
-<meta property="og:url" content="https://xwxlc.github.io/xiaolanchong.githug.io/2023/04/22/1017.%20%E8%B4%9F%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2-MEDIUM/index.html">
+<meta property="og:title" content="1053. 交换一次的先前排列-MEDIUM">
+<meta property="og:url" content="https://xwxlc.github.io/xiaolanchong.githug.io/2023/04/22/subject/1053.%20%E4%BA%A4%E6%8D%A2%E4%B8%80%E6%AC%A1%E7%9A%84%E5%85%88%E5%89%8D%E6%8E%92%E5%88%97-MEDIUM/index.html">
 <meta property="og:site_name" content="小懒虫&amp;">
-<meta property="og:description" content="负二进制转换-MEDIUM力扣题目 方法一 模拟进位解题思路 i 为偶数 2 的 i 次方 &#x3D;&#x3D; -2 的 i 次方 i 为奇数 2 的 i 次方 &#x3D;&#x3D; -2 的(i+1)次方 + -2 的 i 次方  完整代码12345678910111213141516171819202122232425262728293031function baseNeg2(n)">
+<meta property="og:description" content="交换一次的先前排列-MEDIUM力扣题目 方法一解题思路 小于原数组的最大排序 所以在 length-1 到 0 选择 i 的位置 判断思路 i &gt; i+1 得到 i 的位置 在 length-1 到 i 中寻找 j 的位置 判断思路 j &lt; i 得到 j 的位置  完整代码12345678910111213141516function prevPermOpt(arr) &amp;#123;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-04-22T10:03:06.000Z">
-<meta property="article:modified_time" content="2023-04-22T10:03:06.000Z">
+<meta property="article:published_time" content="2023-04-22T10:23:26.000Z">
+<meta property="article:modified_time" content="2023-04-22T10:23:26.000Z">
 <meta property="article:author" content="xiaolanchong">
 <meta property="article:tag" content="MEDIUM">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>1017. 负二进制转换-MEDIUM - 小懒虫&amp;</title>
+  <title>1053. 交换一次的先前排列-MEDIUM - 小懒虫&amp;</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -227,7 +227,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="1017. 负二进制转换-MEDIUM"></span>
+            <span id="subtitle" data-typed-text="1053. 交换一次的先前排列-MEDIUM"></span>
           
         </div>
 
@@ -244,7 +244,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          648 字
+          382 字
         
       </span>
     
@@ -256,7 +256,7 @@
         
         
           <!-- compatible with older versions-->
-          6 分钟
+          4 分钟
         
       </span>
     
@@ -302,17 +302,19 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">1017. 负二进制转换-MEDIUM</h1>
+            <h1 style="display: none">1053. 交换一次的先前排列-MEDIUM</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="负二进制转换-MEDIUM"><a href="#负二进制转换-MEDIUM" class="headerlink" title="负二进制转换-MEDIUM"></a>负二进制转换-MEDIUM</h1><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/convert-to-base-2/">力扣题目</a></p>
-<h1 id="方法一-模拟进位"><a href="#方法一-模拟进位" class="headerlink" title="方法一 模拟进位"></a>方法一 模拟进位</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><ol>
-<li>i 为偶数 2 的 i 次方 &#x3D;&#x3D; -2 的 i 次方</li>
-<li>i 为奇数 2 的 i 次方 &#x3D;&#x3D; -2 的(i+1)次方 + -2 的 i 次方</li>
+                <h1 id="交换一次的先前排列-MEDIUM"><a href="#交换一次的先前排列-MEDIUM" class="headerlink" title="交换一次的先前排列-MEDIUM"></a>交换一次的先前排列-MEDIUM</h1><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/previous-permutation-with-one-swap/">力扣题目</a></p>
+<h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><ol>
+<li>小于原数组的最大排序 所以在 length-1 到 0 选择 i 的位置</li>
+<li>判断思路 i &gt; i+1 得到 i 的位置</li>
+<li>在 length-1 到 i 中寻找 j 的位置</li>
+<li>判断思路 j &lt; i 得到 j 的位置</li>
 </ol>
-<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">baseNeg2</span>(<span class="hljs-params">n</span>) &#123;<br>  <span class="hljs-keyword">if</span> (n == <span class="hljs-number">0</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;0&#x27;</span>;<br>  &#125;<br>  <span class="hljs-keyword">let</span> bins = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(<span class="hljs-number">32</span>).<span class="hljs-title function_">fill</span>(<span class="hljs-number">0</span>);<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">32</span> &amp;&amp; n !== <span class="hljs-number">0</span>; i++) &#123;<br>    <span class="hljs-keyword">if</span> ((n &amp; <span class="hljs-number">1</span>) !== <span class="hljs-number">0</span>) &#123;<br>      bins[i]++;<br>      <span class="hljs-comment">// i为奇数 需要加上 i+1</span><br>      <span class="hljs-keyword">if</span> ((i &amp; <span class="hljs-number">1</span>) !== <span class="hljs-number">0</span>) &#123;<br>        bins[i + <span class="hljs-number">1</span>]++;<br>      &#125;<br>    &#125;<br>    n &gt;&gt;= <span class="hljs-number">1</span>;<br>  &#125;<br>  <span class="hljs-comment">// 转换为-2进制</span><br>  <span class="hljs-keyword">let</span> carry = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">32</span>; i++) &#123;<br>    <span class="hljs-keyword">const</span> val = carry + bins[i];<br>    bins[i] = val &amp; <span class="hljs-number">1</span>;<br>    carry = (val - bins[i]) / -<span class="hljs-number">2</span>;<br>  &#125;<br>  <span class="hljs-comment">// 生成结构</span><br>  <span class="hljs-keyword">let</span> res = <span class="hljs-string">&#x27;&#x27;</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = bins.<span class="hljs-property">length</span> - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>    <span class="hljs-keyword">if</span> (bins[i] || res) &#123;<br>      res += bins[i];<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">prevPermOpt</span>(<span class="hljs-params">arr</span>) &#123;<br>  <span class="hljs-keyword">let</span> n = arr.<span class="hljs-property">length</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = n - <span class="hljs-number">2</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>    <span class="hljs-keyword">if</span> (arr[i] &gt; arr[i + <span class="hljs-number">1</span>]) &#123;<br>      <span class="hljs-keyword">let</span> j = n - <span class="hljs-number">1</span>;<br>      <span class="hljs-keyword">while</span> (arr[j] &gt;= arr[i] || arr[j] == arr[j - <span class="hljs-number">1</span>]) &#123;<br>        j--;<br>      &#125;<br>      <span class="hljs-keyword">let</span> temp = arr[j];<br>      arr[j] = arr[i];<br>      arr[i] = temp;<br>      <span class="hljs-keyword">break</span>;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> arr;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -358,8 +360,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>1017. 负二进制转换-MEDIUM</div>
-      <div>https://xwxlc.github.io/xiaolanchong.githug.io/2023/04/22/1017. 负二进制转换-MEDIUM/</div>
+      <div>1053. 交换一次的先前排列-MEDIUM</div>
+      <div>https://xwxlc.github.io/xiaolanchong.githug.io/2023/04/22/subject/1053. 交换一次的先前排列-MEDIUM/</div>
     </div>
     <div class="license-meta">
       
@@ -403,9 +405,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/xiaolanchong.githug.io/2023/04/22/1019.%20%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A4%A7%E8%8A%82%E7%82%B9-MEDIUM/" title="1019. 链表中的下一个更大节点-MEDIUM">
+                      <a href="/xiaolanchong.githug.io/2023/04/22/subject/1157.%20%E5%AD%90%E6%95%B0%E7%BB%84%E4%B8%AD%E5%8D%A0%E7%BB%9D%E5%A4%A7%E5%A4%9A%E6%95%B0%E7%9A%84%E5%85%83%E7%B4%A0-HARD/" title="1157. 子数组中占绝大多数的元素-HARD">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">1019. 链表中的下一个更大节点-MEDIUM</span>
+                        <span class="hidden-mobile">1157. 子数组中占绝大多数的元素-HARD</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -413,8 +415,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/xiaolanchong.githug.io/2023/04/22/subject/8.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%95%B4%E6%95%B0%20(atoi)-MEDIUM/" title="8. 字符串转换整数 (atoi)-MEDIUM">
-                        <span class="hidden-mobile">8. 字符串转换整数 (atoi)-MEDIUM</span>
+                      <a href="/xiaolanchong.githug.io/2023/04/22/subject/1041.%20%E5%9B%B0%E4%BA%8E%E7%8E%AF%E4%B8%AD%E7%9A%84%E6%9C%BA%E5%99%A8%E4%BA%BA-MEDIUM/" title="1041. 困于环中的机器人-MEDIUM">
+                        <span class="hidden-mobile">1041. 困于环中的机器人-MEDIUM</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
