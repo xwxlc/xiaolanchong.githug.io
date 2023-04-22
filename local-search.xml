@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>1027. 最长等差数列-MEDIUM</title>
+    <link href="/xiaolanchong.githug.io/2023/04/22/1027.%20%E6%9C%80%E9%95%BF%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97-MEDIUM/"/>
+    <url>/xiaolanchong.githug.io/2023/04/22/1027.%20%E6%9C%80%E9%95%BF%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97-MEDIUM/</url>
+    
+    <content type="html"><![CDATA[<h1 id="最长等差数列-MEDIUM"><a href="#最长等差数列-MEDIUM" class="headerlink" title="最长等差数列-MEDIUM"></a>最长等差数列-MEDIUM</h1><p><a href="https://leetcode.cn/problems/longest-arithmetic-subsequence/">力扣题目</a></p><h1 id="方法一-动态规划"><a href="#方法一-动态规划" class="headerlink" title="方法一 动态规划"></a>方法一 动态规划</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><ol><li>首先获得最大值和最小值计 计算出最大等差数值 diff</li><li>注意数组不是有序数组 所以等差数范围是 [-diff,diff]</li><li>遍历得到 每个数传入 + diff</li></ol><h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> longestArithSeqLength = <span class="hljs-keyword">function</span> (<span class="hljs-params">nums</span>) &#123;<br>  <span class="hljs-keyword">const</span> max = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(...nums);<br>  <span class="hljs-keyword">const</span> min = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">min</span>(...nums);<br>  <span class="hljs-keyword">const</span> diff = max - min;<br>  <span class="hljs-keyword">let</span> res = <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> d = -diff; d &lt;= diff; d++) &#123;<br>    <span class="hljs-keyword">const</span> temp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(max + <span class="hljs-number">1</span>).<span class="hljs-title function_">fill</span>(-<span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> num <span class="hljs-keyword">of</span> nums) &#123;<br>      <span class="hljs-keyword">const</span> prev = num + d;<br>      <span class="hljs-keyword">if</span> (prev &gt;= min &amp;&amp; prev &lt;= max &amp;&amp; temp[prev] !== -<span class="hljs-number">1</span>) &#123;<br>        temp[num] = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(temp[num], temp[prev] + <span class="hljs-number">1</span>);<br>        res = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(temp[num], res);<br>      &#125;<br>      temp[num] = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(temp[num], <span class="hljs-number">1</span>);<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> res;<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>MEDIUM</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>1157. 子数组中占绝大多数的元素-HARD</title>
     <link href="/xiaolanchong.githug.io/2023/04/22/subject/1157.%20%E5%AD%90%E6%95%B0%E7%BB%84%E4%B8%AD%E5%8D%A0%E7%BB%9D%E5%A4%A7%E5%A4%9A%E6%95%B0%E7%9A%84%E5%85%83%E7%B4%A0-HARD/"/>
     <url>/xiaolanchong.githug.io/2023/04/22/subject/1157.%20%E5%AD%90%E6%95%B0%E7%BB%84%E4%B8%AD%E5%8D%A0%E7%BB%9D%E5%A4%A7%E5%A4%9A%E6%95%B0%E7%9A%84%E5%85%83%E7%B4%A0-HARD/</url>
