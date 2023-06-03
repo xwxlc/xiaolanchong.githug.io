@@ -16,22 +16,22 @@
   <meta name="author" content="xiaolanchong">
   <meta name="keywords" content="小懒虫&amp; 博客">
   
-    <meta name="description" content="摘水果-HARD力扣题目 方法一 二分查找解题思路完整代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354var maxTotalFruits &#x3D; function (fruits, startPos, k) &amp;#123;  const n &#x3D; fr">
+    <meta name="description" content="差值数组不同的字符串-EASY力扣题目 方法一解题思路 该题是让我们计算差值，既然是差值那我们应该想到的是转数字，那字母如何转数字呢？ 目前想到两种方法  一种是创建一个字母与数字的映射表 第二种是转换成 Unicode   我们使用第二种方法，利用 charCode 或 charCodeAt 把字母转换成 Unicode 进行计算  完整代码123456789101112131415161718">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2106. 摘水果-HARD">
-<meta property="og:url" content="https://xwxlc.github.io/xiaolanchong.githug.io/2023/05/14/subject/2106.%20%E6%91%98%E6%B0%B4%E6%9E%9C-HARD/index.html">
+<meta property="og:title" content="2451. 差值数组不同的字符串-EASY">
+<meta property="og:url" content="https://xwxlc.github.io/xiaolanchong.githug.io/2023/06/03/subject/2451.%20%E5%B7%AE%E5%80%BC%E6%95%B0%E7%BB%84%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2-EASY/index.html">
 <meta property="og:site_name" content="小懒虫&amp;">
-<meta property="og:description" content="摘水果-HARD力扣题目 方法一 二分查找解题思路完整代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354var maxTotalFruits &#x3D; function (fruits, startPos, k) &amp;#123;  const n &#x3D; fr">
+<meta property="og:description" content="差值数组不同的字符串-EASY力扣题目 方法一解题思路 该题是让我们计算差值，既然是差值那我们应该想到的是转数字，那字母如何转数字呢？ 目前想到两种方法  一种是创建一个字母与数字的映射表 第二种是转换成 Unicode   我们使用第二种方法，利用 charCode 或 charCodeAt 把字母转换成 Unicode 进行计算  完整代码123456789101112131415161718">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-05-14T10:53:21.000Z">
-<meta property="article:modified_time" content="2023-05-14T10:53:21.000Z">
+<meta property="article:published_time" content="2023-06-03T02:19:01.000Z">
+<meta property="article:modified_time" content="2023-06-03T02:19:01.000Z">
 <meta property="article:author" content="xiaolanchong">
-<meta property="article:tag" content="HARD">
+<meta property="article:tag" content="EASY">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>2106. 摘水果-HARD - 小懒虫&amp;</title>
+  <title>2451. 差值数组不同的字符串-EASY - 小懒虫&amp;</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -227,7 +227,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="2106. 摘水果-HARD"></span>
+            <span id="subtitle" data-typed-text="2451. 差值数组不同的字符串-EASY"></span>
           
         </div>
 
@@ -244,7 +244,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.9k 字
+          649 字
         
       </span>
     
@@ -256,7 +256,7 @@
         
         
           <!-- compatible with older versions-->
-          16 分钟
+          6 分钟
         
       </span>
     
@@ -302,18 +302,22 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">2106. 摘水果-HARD</h1>
+            <h1 style="display: none">2451. 差值数组不同的字符串-EASY</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="摘水果-HARD"><a href="#摘水果-HARD" class="headerlink" title="摘水果-HARD"></a>摘水果-HARD</h1><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-fruits-harvested-after-at-most-k-steps/">力扣题目</a></p>
-<h1 id="方法一-二分查找"><a href="#方法一-二分查找" class="headerlink" title="方法一 二分查找"></a>方法一 二分查找</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> maxTotalFruits = <span class="hljs-keyword">function</span> (<span class="hljs-params">fruits, startPos, k</span>) &#123;<br>  <span class="hljs-keyword">const</span> n = fruits.<span class="hljs-property">length</span>;<br>  <span class="hljs-keyword">const</span> sum = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(n + <span class="hljs-number">1</span>).<span class="hljs-title function_">fill</span>(<span class="hljs-number">0</span>);<br>  <span class="hljs-keyword">const</span> indices = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(n).<span class="hljs-title function_">fill</span>(<span class="hljs-number">0</span>);<br>  sum[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>    sum[i + <span class="hljs-number">1</span>] = sum[i] + fruits[i][<span class="hljs-number">1</span>];<br>    indices[i] = fruits[i][<span class="hljs-number">0</span>];<br>  &#125;<br>  <span class="hljs-keyword">let</span> res = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> x = <span class="hljs-number">0</span>; x &lt;= <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(k / <span class="hljs-number">2</span>); x++) &#123;<br>    <span class="hljs-comment">//  先向左走 x 再向右走 k-x</span><br>    <span class="hljs-keyword">let</span> left = startPos - x;<br>    <span class="hljs-keyword">let</span> right = startPos + k - <span class="hljs-number">2</span> * x;<br>    <span class="hljs-keyword">let</span> start = <span class="hljs-title function_">lowerBound</span>(indices, <span class="hljs-number">0</span>, n - <span class="hljs-number">1</span>, left);<br>    <span class="hljs-keyword">let</span> end = <span class="hljs-title function_">upperBound</span>(indices, <span class="hljs-number">0</span>, n - <span class="hljs-number">1</span>, right);<br>    res = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(res, sum[end] - sum[start]);<br>    <span class="hljs-comment">// 先向右走 x 再向左走 k - x</span><br>    left = startPos - (k - <span class="hljs-number">2</span> * x);<br>    right = startPos + x;<br>    start = <span class="hljs-title function_">lowerBound</span>(indices, <span class="hljs-number">0</span>, n - <span class="hljs-number">1</span>, left);<br>    end = <span class="hljs-title function_">upperBound</span>(indices, <span class="hljs-number">0</span>, n - <span class="hljs-number">1</span>, right);<br>    res = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(res, sum[end] - sum[start]);<br>  &#125;<br>  <span class="hljs-keyword">return</span> res;<br>&#125;;<br><span class="hljs-keyword">const</span> <span class="hljs-title function_">lowerBound</span> = (<span class="hljs-params">arr, left, right, val</span>) =&gt; &#123;<br>  <span class="hljs-keyword">let</span> res = right + <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>    <span class="hljs-keyword">const</span> mid = left + <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((right - left) / <span class="hljs-number">2</span>);<br>    <span class="hljs-keyword">if</span> (arr[mid] &gt;= val) &#123;<br>      res = mid;<br>      right = mid - <span class="hljs-number">1</span>;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      left = mid + <span class="hljs-number">1</span>;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> res;<br>&#125;;<br><span class="hljs-keyword">const</span> <span class="hljs-title function_">upperBound</span> = (<span class="hljs-params">arr, left, right, val</span>) =&gt; &#123;<br>  <span class="hljs-keyword">let</span> res = right + <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>    <span class="hljs-keyword">const</span> mid = left + <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((right - left) / <span class="hljs-number">2</span>);<br>    <span class="hljs-keyword">if</span> (arr[mid] &gt; val) &#123;<br>      res = mid;<br>      right = mid - <span class="hljs-number">1</span>;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      left = mid + <span class="hljs-number">1</span>;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> res;<br>&#125;;<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">maxTotalFruits</span>(paramFruits, paramStartPos, paramK));<br></code></pre></td></tr></table></figure>
-
-<h1 id="方法二-模拟法"><a href="#方法二-模拟法" class="headerlink" title="方法二 模拟法"></a>方法二 模拟法</h1><blockquote>
-<p>会超时</p>
-</blockquote>
-<h2 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="完整代码-1"><a href="#完整代码-1" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> maxTotalFruits = <span class="hljs-keyword">function</span> (<span class="hljs-params">fruits, startPos, k</span>) &#123;<br>  <span class="hljs-keyword">const</span> map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Map</span>();<br>  <span class="hljs-keyword">let</span> res = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> [i, val] <span class="hljs-keyword">of</span> fruits) &#123;<br>    map.<span class="hljs-title function_">set</span>(i, val);<br>  &#125;<br>  <span class="hljs-comment">//  右多</span><br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = -<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(k / <span class="hljs-number">2</span>); i &lt;= <span class="hljs-number">0</span>; i++) &#123;<br>    <span class="hljs-keyword">let</span> left = startPos + i;<br>    <span class="hljs-keyword">let</span> right = startPos + k + i * <span class="hljs-number">2</span>;<br>    <span class="hljs-keyword">let</span> sum = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = left; j &lt;= right; j++) &#123;<br>      sum += map.<span class="hljs-title function_">get</span>(j) || <span class="hljs-number">0</span>;<br>    &#125;<br>    res = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(res, sum);<br>  &#125;<br>  <span class="hljs-comment">//  左多</span><br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(k / <span class="hljs-number">2</span>); i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>    <span class="hljs-keyword">let</span> right = startPos + i;<br>    <span class="hljs-keyword">let</span> left = startPos + k + i * <span class="hljs-number">2</span>;<br>    <span class="hljs-keyword">let</span> sum = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = left; j &lt;= right; j++) &#123;<br>      sum += map.<span class="hljs-title function_">get</span>(j) || <span class="hljs-number">0</span>;<br>    &#125;<br>    res = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(res, sum);<br>  &#125;<br>  <span class="hljs-keyword">return</span> res;<br>&#125;;<br></code></pre></td></tr></table></figure>
+                <h1 id="差值数组不同的字符串-EASY"><a href="#差值数组不同的字符串-EASY" class="headerlink" title="差值数组不同的字符串-EASY"></a>差值数组不同的字符串-EASY</h1><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/odd-string-difference/">力扣题目</a></p>
+<h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><ol>
+<li>该题是让我们计算差值，既然是差值那我们应该想到的是转数字，那字母如何转数字呢？</li>
+<li>目前想到两种方法 <ul>
+<li>一种是创建一个字母与数字的映射表</li>
+<li>第二种是转换成 Unicode</li>
+</ul>
+</li>
+<li>我们使用第二种方法，利用 charCode 或 charCodeAt 把字母转换成 Unicode 进行计算</li>
+</ol>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> getDiff = <span class="hljs-keyword">function</span> (<span class="hljs-params">word</span>) &#123;<br>  <span class="hljs-keyword">let</span> len = word.<span class="hljs-property">length</span>;<br>  <span class="hljs-keyword">let</span> diff = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(len - <span class="hljs-number">1</span>);<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len - <span class="hljs-number">1</span>; i++) &#123;<br>    diff[i] = word.<span class="hljs-title function_">charCodeAt</span>(i + <span class="hljs-number">1</span>) - word.<span class="hljs-title function_">charCodeAt</span>(i);<br>  &#125;<br>  <span class="hljs-keyword">return</span> diff.<span class="hljs-title function_">toString</span>();<br>&#125;;<br><span class="hljs-keyword">var</span> oddString = <span class="hljs-keyword">function</span> (<span class="hljs-params">words</span>) &#123;<br>  <span class="hljs-keyword">let</span> diff1 = <span class="hljs-title function_">getDiff</span>(words[<span class="hljs-number">0</span>]);<br>  <span class="hljs-keyword">let</span> diff2 = <span class="hljs-title function_">getDiff</span>(words[<span class="hljs-number">1</span>]);<br>  <span class="hljs-keyword">if</span> (diff1 == diff2) &#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">2</span>; i &lt; words.<span class="hljs-property">length</span>; i++) &#123;<br>      <span class="hljs-keyword">if</span> (diff1 != <span class="hljs-title function_">getDiff</span>(words[i])) &#123;<br>        <span class="hljs-keyword">return</span> words[i];<br>      &#125;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> diff1 == <span class="hljs-title function_">getDiff</span>(words[<span class="hljs-number">2</span>]) ? words[<span class="hljs-number">1</span>] : words[<span class="hljs-number">0</span>];<br>&#125;;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -347,7 +351,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/xiaolanchong.githug.io/tags/HARD/">#HARD</a>
+        <a href="/xiaolanchong.githug.io/tags/EASY/">#EASY</a>
       
     </div>
   
@@ -359,8 +363,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>2106. 摘水果-HARD</div>
-      <div>https://xwxlc.github.io/xiaolanchong.githug.io/2023/05/14/subject/2106. 摘水果-HARD/</div>
+      <div>2451. 差值数组不同的字符串-EASY</div>
+      <div>https://xwxlc.github.io/xiaolanchong.githug.io/2023/06/03/subject/2451. 差值数组不同的字符串-EASY/</div>
     </div>
     <div class="license-meta">
       
@@ -372,7 +376,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年5月14日</div>
+          <div>2023年6月3日</div>
         </div>
       
       
@@ -404,18 +408,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/xiaolanchong.githug.io/2023/06/03/subject/1003.%20%E6%A3%80%E6%9F%A5%E6%9B%BF%E6%8D%A2%E5%90%8E%E7%9A%84%E8%AF%8D%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88-MEDIUM/" title="1003. 检查替换后的词是否有效-MEDIUM">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">1003. 检查替换后的词是否有效-MEDIUM</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/xiaolanchong.githug.io/2023/05/14/subject/970.%20%E5%BC%BA%E6%95%B4%E6%95%B0-MEDIUM/" title="970. 强整数-MEDIUM">
-                        <span class="hidden-mobile">970. 强整数-MEDIUM</span>
+                      <a href="/xiaolanchong.githug.io/2023/06/03/subject/1439.%20%E6%9C%89%E5%BA%8F%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E7%AC%AC%20k%20%E4%B8%AA%E6%9C%80%E5%B0%8F%E6%95%B0%E7%BB%84%E5%92%8C-HARD/" title="1439. 有序矩阵中的第 k 个最小数组和-HARD">
+                        <span class="hidden-mobile">1439. 有序矩阵中的第 k 个最小数组和-HARD</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

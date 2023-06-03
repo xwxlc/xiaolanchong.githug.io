@@ -4,6 +4,156 @@
   
   
   <entry>
+    <title>2451. 差值数组不同的字符串-EASY</title>
+    <link href="/xiaolanchong.githug.io/2023/06/03/subject/2451.%20%E5%B7%AE%E5%80%BC%E6%95%B0%E7%BB%84%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2-EASY/"/>
+    <url>/xiaolanchong.githug.io/2023/06/03/subject/2451.%20%E5%B7%AE%E5%80%BC%E6%95%B0%E7%BB%84%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2-EASY/</url>
+    
+    <content type="html"><![CDATA[<h1 id="差值数组不同的字符串-EASY"><a href="#差值数组不同的字符串-EASY" class="headerlink" title="差值数组不同的字符串-EASY"></a>差值数组不同的字符串-EASY</h1><p><a href="https://leetcode.cn/problems/odd-string-difference/">力扣题目</a></p><h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><ol><li>该题是让我们计算差值，既然是差值那我们应该想到的是转数字，那字母如何转数字呢？</li><li>目前想到两种方法 <ul><li>一种是创建一个字母与数字的映射表</li><li>第二种是转换成 Unicode</li></ul></li><li>我们使用第二种方法，利用 charCode 或 charCodeAt 把字母转换成 Unicode 进行计算</li></ol><h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> getDiff = <span class="hljs-keyword">function</span> (<span class="hljs-params">word</span>) &#123;<br>  <span class="hljs-keyword">let</span> len = word.<span class="hljs-property">length</span>;<br>  <span class="hljs-keyword">let</span> diff = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(len - <span class="hljs-number">1</span>);<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len - <span class="hljs-number">1</span>; i++) &#123;<br>    diff[i] = word.<span class="hljs-title function_">charCodeAt</span>(i + <span class="hljs-number">1</span>) - word.<span class="hljs-title function_">charCodeAt</span>(i);<br>  &#125;<br>  <span class="hljs-keyword">return</span> diff.<span class="hljs-title function_">toString</span>();<br>&#125;;<br><span class="hljs-keyword">var</span> oddString = <span class="hljs-keyword">function</span> (<span class="hljs-params">words</span>) &#123;<br>  <span class="hljs-keyword">let</span> diff1 = <span class="hljs-title function_">getDiff</span>(words[<span class="hljs-number">0</span>]);<br>  <span class="hljs-keyword">let</span> diff2 = <span class="hljs-title function_">getDiff</span>(words[<span class="hljs-number">1</span>]);<br>  <span class="hljs-keyword">if</span> (diff1 == diff2) &#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">2</span>; i &lt; words.<span class="hljs-property">length</span>; i++) &#123;<br>      <span class="hljs-keyword">if</span> (diff1 != <span class="hljs-title function_">getDiff</span>(words[i])) &#123;<br>        <span class="hljs-keyword">return</span> words[i];<br>      &#125;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> diff1 == <span class="hljs-title function_">getDiff</span>(words[<span class="hljs-number">2</span>]) ? words[<span class="hljs-number">1</span>] : words[<span class="hljs-number">0</span>];<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>EASY</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>1439. 有序矩阵中的第 k 个最小数组和-HARD</title>
+    <link href="/xiaolanchong.githug.io/2023/06/03/subject/1439.%20%E6%9C%89%E5%BA%8F%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E7%AC%AC%20k%20%E4%B8%AA%E6%9C%80%E5%B0%8F%E6%95%B0%E7%BB%84%E5%92%8C-HARD/"/>
+    <url>/xiaolanchong.githug.io/2023/06/03/subject/1439.%20%E6%9C%89%E5%BA%8F%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E7%AC%AC%20k%20%E4%B8%AA%E6%9C%80%E5%B0%8F%E6%95%B0%E7%BB%84%E5%92%8C-HARD/</url>
+    
+    <content type="html"><![CDATA[<h1 id="有序矩阵中的第-k-个最小数组和-HARD"><a href="#有序矩阵中的第-k-个最小数组和-HARD" class="headerlink" title="有序矩阵中的第 k 个最小数组和-HARD"></a>有序矩阵中的第 k 个最小数组和-HARD</h1><p><a href="https://leetcode.cn/problems/find-the-kth-smallest-sum-of-a-matrix-with-sorted-rows/">力扣题目</a></p><h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 暴力解法</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">var</span> kthSmallest = <span class="hljs-keyword">function</span> (<span class="hljs-params">mat, k</span>) &#123;<br>  <span class="hljs-keyword">let</span> res_arr = [<span class="hljs-number">0</span>];<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; mat.<span class="hljs-property">length</span>; i++) &#123;<br>    <span class="hljs-keyword">let</span> new_arr = [];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; mat[i].<span class="hljs-property">length</span>; j++) &#123;<br>      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> key <span class="hljs-keyword">of</span> res_arr) &#123;<br>        new_arr.<span class="hljs-title function_">push</span>(key + mat[i][j]);<br>      &#125;<br>    &#125;<br>    new_arr.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a - b);<br>    <span class="hljs-keyword">if</span> (k &lt; new_arr.<span class="hljs-property">length</span>) &#123;<br>      res_arr = new_arr.<span class="hljs-title function_">slice</span>(<span class="hljs-number">0</span>, k);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      res_arr = new_arr;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> res_arr[k - <span class="hljs-number">1</span>];<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>HARD</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>1093. 大样本统计-MEDIUM</title>
+    <link href="/xiaolanchong.githug.io/2023/06/03/subject/1093.%20%E5%A4%A7%E6%A0%B7%E6%9C%AC%E7%BB%9F%E8%AE%A1-MEDIUM/"/>
+    <url>/xiaolanchong.githug.io/2023/06/03/subject/1093.%20%E5%A4%A7%E6%A0%B7%E6%9C%AC%E7%BB%9F%E8%AE%A1-MEDIUM/</url>
+    
+    <content type="html"><![CDATA[<h1 id="大样本统计-MEDIUM"><a href="#大样本统计-MEDIUM" class="headerlink" title="大样本统计-MEDIUM"></a>大样本统计-MEDIUM</h1><p><a href="https://leetcode.cn/problems/statistics-from-a-large-sample/">力扣题目</a></p><h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><ol><li>这道题相等比较简单，直接逐步处理每个值就可以了</li><li>值得注意的是，中位数分奇偶两种情况</li></ol><blockquote><p>结合奇偶的规律可以把奇偶两种情况合并成<br>left &#x3D; Math.floor((total + 1) &#x2F; 2) right &#x3D; Math.floor((total + 2) &#x2F; 2);</p></blockquote><h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br><span class="hljs-keyword">var</span> sampleStats = <span class="hljs-keyword">function</span> (<span class="hljs-params">count</span>) &#123;<br>  <span class="hljs-keyword">let</span> minimum = <span class="hljs-number">256</span>; <span class="hljs-comment">//最小</span><br>  <span class="hljs-keyword">let</span> maximum = <span class="hljs-number">0</span>; <span class="hljs-comment">//最大</span><br>  <span class="hljs-keyword">let</span> total = count.<span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">acc, cur</span>) =&gt;</span> acc + cur, <span class="hljs-number">0</span>); <span class="hljs-comment">//总长</span><br>  <span class="hljs-keyword">let</span> left = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((total + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>); <span class="hljs-comment">//中位数</span><br>  <span class="hljs-keyword">let</span> right = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((total + <span class="hljs-number">2</span>) / <span class="hljs-number">2</span>); <span class="hljs-comment">//中位数</span><br>  <span class="hljs-keyword">let</span> cat = <span class="hljs-number">0</span>; <span class="hljs-comment">//计数</span><br>  <span class="hljs-keyword">let</span> median = <span class="hljs-number">0</span>; <span class="hljs-comment">//中位</span><br>  <span class="hljs-keyword">let</span> sum = <span class="hljs-number">0</span>; <span class="hljs-comment">//总和</span><br>  <span class="hljs-keyword">let</span> mean = <span class="hljs-number">0</span>; <span class="hljs-comment">//平均</span><br>  <span class="hljs-keyword">let</span> mode = <span class="hljs-number">0</span>; <span class="hljs-comment">//最多</span><br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; count.<span class="hljs-property">length</span>; i++) &#123;<br>    <span class="hljs-keyword">if</span> (count[i] != <span class="hljs-number">0</span>) &#123;<br>      <span class="hljs-keyword">if</span> (minimum == <span class="hljs-number">256</span>) &#123;<br>        minimum = i;<br>      &#125;<br>      maximum = i;<br>    &#125;<br>    sum += i * count[i];<br>    <span class="hljs-keyword">if</span> (count[mode] &lt; count[i]) &#123;<br>      mode = i;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (cat &lt; left &amp;&amp; count[i] + cat &gt;= left) &#123;<br>      median += i;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (cat &lt; right &amp;&amp; count[i] + cat &gt;= right) &#123;<br>      median += i;<br>    &#125;<br>    cat += count[i];<br>  &#125;<br>  mean = sum / total;<br>  median = median / <span class="hljs-number">2</span>;<br>  <span class="hljs-keyword">return</span> [minimum, maximum, mean, median, mode];<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>MEDIUM</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>1091. 二进制矩阵中的最短路径-MEDIUM</title>
+    <link href="/xiaolanchong.githug.io/2023/06/03/subject/1091.%20%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84-MEDIUM/"/>
+    <url>/xiaolanchong.githug.io/2023/06/03/subject/1091.%20%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84-MEDIUM/</url>
+    
+    <content type="html"><![CDATA[<h1 id="二进制矩阵中的最短路径-MEDIUM"><a href="#二进制矩阵中的最短路径-MEDIUM" class="headerlink" title="二进制矩阵中的最短路径-MEDIUM"></a>二进制矩阵中的最短路径-MEDIUM</h1><p><a href="https://leetcode.cn/problems/shortest-path-in-binary-matrix/">力扣题目</a></p><h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><ol><li>先不考虑边界值，每个位置存在8个方向的可能，对应坐标是 x:-1<del>1 y:-1</del>1</li><li>从坐标[0,0]开始，记录走到当前坐标需要的步骤</li><li>但走出边界 后 位置已被反问过时退出，进入下一循环，否则的把下一位置代码循环依次判断</li><li>当走到[n,n]是返回 dist[n][n]</li></ol><h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> shortestPathBinaryMatrix = <span class="hljs-keyword">function</span> (<span class="hljs-params">grid</span>) &#123;<br>  <span class="hljs-keyword">if</span> (grid[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] === <span class="hljs-number">1</span>) &#123;<br>    <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>  &#125;<br>  <span class="hljs-keyword">const</span> len = grid.<span class="hljs-property">length</span>;<br>  <span class="hljs-keyword">let</span> dist = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(len).<span class="hljs-title function_">fill</span>(<span class="hljs-string">&#x27;&#x27;</span>).<span class="hljs-title function_">map</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(len).<span class="hljs-title function_">fill</span>(<span class="hljs-title class_">Infinity</span>));<br>  dist[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">let</span> temp = [[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>]];<br>  <span class="hljs-keyword">while</span> (temp.<span class="hljs-property">length</span> &gt; <span class="hljs-number">0</span>) &#123;<br>    <span class="hljs-keyword">const</span> [x, y] = temp.<span class="hljs-title function_">shift</span>();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> dx = -<span class="hljs-number">1</span>; dx &lt;= <span class="hljs-number">1</span>; dx++) &#123;<br>      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> dy = -<span class="hljs-number">1</span>; dy &lt;= <span class="hljs-number">1</span>; dy++) &#123;<br>        <span class="hljs-keyword">if</span> (x == len - <span class="hljs-number">1</span> &amp;&amp; y == len - <span class="hljs-number">1</span>) &#123;<br>          <span class="hljs-keyword">return</span> dist[x][y];<br>        &#125;<br>        <span class="hljs-comment">// 边界情况</span><br>        <span class="hljs-keyword">if</span> (x + dx &lt; <span class="hljs-number">0</span> || x + dx &gt;= len || y + dy &lt; <span class="hljs-number">0</span> || y + dy &gt;= len) &#123;<br>          <span class="hljs-keyword">continue</span>;<br>        &#125;<br>        <span class="hljs-comment">// 被访问了</span><br>        <span class="hljs-keyword">if</span> (grid[x + dx][y + dy] &gt; <span class="hljs-number">0</span> || dist[x + dx][y + dy] &lt;= dist[x][y] + <span class="hljs-number">1</span>) &#123;<br>          <span class="hljs-keyword">continue</span>;<br>        &#125;<br>        dist[x + dx][y + dy] = dist[x][y] + <span class="hljs-number">1</span>;<br>        temp.<span class="hljs-title function_">push</span>([x + dx, y + dy]);<br>      &#125;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>MEDIUM</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>2039. 网络空闲的时刻-MEDIUM</title>
+    <link href="/xiaolanchong.githug.io/2023/06/03/subject/2039.%20%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B2%E7%9A%84%E6%97%B6%E5%88%BB-MEDIUM/"/>
+    <url>/xiaolanchong.githug.io/2023/06/03/subject/2039.%20%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B2%E7%9A%84%E6%97%B6%E5%88%BB-MEDIUM/</url>
+    
+    <content type="html"><![CDATA[<h1 id="网络空闲的时刻-MEDIUM"><a href="#网络空闲的时刻-MEDIUM" class="headerlink" title="网络空闲的时刻-MEDIUM"></a>网络空闲的时刻-MEDIUM</h1><p><a href="https://leetcode.cn/problems/the-time-when-the-network-becomes-idle/">力扣题目</a></p><h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><blockquote><p>没太理解</p></blockquote><h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> networkBecomesIdle = <span class="hljs-keyword">function</span> (<span class="hljs-params">edges, patience</span>) &#123;<br>  <span class="hljs-keyword">const</span> grah = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Map</span>(); <span class="hljs-comment">// 构造无向图</span><br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> [x, y] <span class="hljs-keyword">of</span> edges) &#123;<br>    grah.<span class="hljs-title function_">get</span>(x) ? grah.<span class="hljs-title function_">get</span>(x).<span class="hljs-title function_">push</span>(y) : grah.<span class="hljs-title function_">set</span>(x, [y]);<br>    grah.<span class="hljs-title function_">get</span>(y) ? grah.<span class="hljs-title function_">get</span>(y).<span class="hljs-title function_">push</span>(x) : grah.<span class="hljs-title function_">set</span>(y, [x]);<br>  &#125;<br>  <span class="hljs-keyword">const</span> queue = [<span class="hljs-number">0</span>],<br>    visited = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Set</span>([<span class="hljs-number">0</span>]);<br>  <span class="hljs-keyword">let</span> index = <span class="hljs-number">0</span>,<br>    distance = <span class="hljs-number">0</span>,<br>    maxIdleTime = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">while</span> (index &lt; queue.<span class="hljs-property">length</span>) &#123;<br>    <span class="hljs-comment">// 广度优先搜索，移动 index 指针，提高性能</span><br>    distance++;<br>    <span class="hljs-keyword">const</span> length = queue.<span class="hljs-property">length</span>;<br>    <span class="hljs-keyword">while</span> (index &lt; length) &#123;<br>      <span class="hljs-keyword">const</span> tmp = grah.<span class="hljs-title function_">get</span>(queue[index++]);<br>      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> child <span class="hljs-keyword">of</span> tmp) &#123;<br>        <span class="hljs-keyword">if</span> (visited.<span class="hljs-title function_">has</span>(child)) <span class="hljs-keyword">continue</span>; <span class="hljs-comment">// 记录已访问过的节点，避免重复遍历</span><br>        visited.<span class="hljs-title function_">add</span>(child);<br>        <span class="hljs-keyword">const</span> idleTime = (((<span class="hljs-number">2</span> * distance - <span class="hljs-number">1</span>) / patience[child]) | <span class="hljs-number">0</span>) * patience[child] + <span class="hljs-number">2</span> * distance + <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span> (idleTime &gt; maxIdleTime) maxIdleTime = idleTime; <span class="hljs-comment">// 计算空闲时间，更新最大值</span><br>        queue.<span class="hljs-title function_">push</span>(child);<br>      &#125;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> maxIdleTime;<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>MEDIUM</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>1003. 检查替换后的词是否有效-MEDIUM</title>
+    <link href="/xiaolanchong.githug.io/2023/06/03/subject/1003.%20%E6%A3%80%E6%9F%A5%E6%9B%BF%E6%8D%A2%E5%90%8E%E7%9A%84%E8%AF%8D%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88-MEDIUM/"/>
+    <url>/xiaolanchong.githug.io/2023/06/03/subject/1003.%20%E6%A3%80%E6%9F%A5%E6%9B%BF%E6%8D%A2%E5%90%8E%E7%9A%84%E8%AF%8D%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88-MEDIUM/</url>
+    
+    <content type="html"><![CDATA[<h1 id="检查替换后的词是否有效-MEDIUM"><a href="#检查替换后的词是否有效-MEDIUM" class="headerlink" title="检查替换后的词是否有效-MEDIUM"></a>检查替换后的词是否有效-MEDIUM</h1><p><a href="https://leetcode.cn/problems/check-if-word-is-valid-after-substitutions/">力扣题目</a></p><h1 id="方法一-匹配法"><a href="#方法一-匹配法" class="headerlink" title="方法一 匹配法"></a>方法一 匹配法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>与 <a href="https://leetcode.cn/problems/valid-parentheses/">20. 有效的括号-EASY</a> 解题思路类似</p><h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> isValid = <span class="hljs-keyword">function</span> (<span class="hljs-params">s</span>) &#123;<br>  <span class="hljs-keyword">while</span> (s.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&#x27;abc&#x27;</span>) != -<span class="hljs-number">1</span>) &#123;<br>    s = s.<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/abc/g</span>, <span class="hljs-string">&#x27;&#x27;</span>);<br>  &#125;<br>  <span class="hljs-keyword">return</span> !s.<span class="hljs-property">length</span>;<br>  <span class="hljs-comment">//</span><br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>MEDIUM</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>2106. 摘水果-HARD</title>
     <link href="/xiaolanchong.githug.io/2023/05/14/subject/2106.%20%E6%91%98%E6%B0%B4%E6%9E%9C-HARD/"/>
     <url>/xiaolanchong.githug.io/2023/05/14/subject/2106.%20%E6%91%98%E6%B0%B4%E6%9E%9C-HARD/</url>
