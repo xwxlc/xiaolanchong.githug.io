@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>1156. 单字符重复子串的最大长度-MEDIUM</title>
+    <link href="/xiaolanchong.githug.io/2023/06/03/subject/1156.%20%E5%8D%95%E5%AD%97%E7%AC%A6%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E9%95%BF%E5%BA%A6-MEDIUM/"/>
+    <url>/xiaolanchong.githug.io/2023/06/03/subject/1156.%20%E5%8D%95%E5%AD%97%E7%AC%A6%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E9%95%BF%E5%BA%A6-MEDIUM/</url>
+    
+    <content type="html"><![CDATA[<h1 id="单字符重复子串的最大长度-MEDIUM"><a href="#单字符重复子串的最大长度-MEDIUM" class="headerlink" title="单字符重复子串的最大长度-MEDIUM"></a>单字符重复子串的最大长度-MEDIUM</h1><p><a href="https://leetcode.cn/problems/swap-for-longest-repeated-character-substring/">力扣题目</a></p><h1 id="方法一-滑动窗口"><a href="#方法一-滑动窗口" class="headerlink" title="方法一 滑动窗口"></a>方法一 滑动窗口</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><ol><li>首先确认个字母的总长度</li><li>根据规则 最多只能交互一次, 所以连续字符串最多中间只能存在一个不同的字符串</li><li>两段长度相加如果小于字母的总长度，说明有可交互中间不同字符串的存在，最终长度 +1</li></ol><h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> maxRepOpt1 = <span class="hljs-keyword">function</span> (<span class="hljs-params">text</span>) &#123;<br>  <span class="hljs-keyword">const</span> count = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Map</span>();<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; text.<span class="hljs-property">length</span>; i++) &#123;<br>    <span class="hljs-keyword">const</span> k = text[i];<br>    count.<span class="hljs-title function_">set</span>(k, (count.<span class="hljs-title function_">get</span>(k) || <span class="hljs-number">0</span>) + <span class="hljs-number">1</span>);<br>  &#125;<br>  <span class="hljs-keyword">let</span> max = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; text.<span class="hljs-property">length</span>; ) &#123;<br>    <span class="hljs-keyword">let</span> curr = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">const</span> k = text[i];<br>    <span class="hljs-comment">// 计算连续字符串长度</span><br>    <span class="hljs-keyword">let</span> j = i + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (k == text[j]) &#123;<br>      j++;<br>    &#125;<br>    curr += j - i;<br>    <span class="hljs-comment">// 优化循环 跳过连续部分</span><br>    i = j;<br><br>    <span class="hljs-comment">// 计算间隔一位后 连续的子串长度</span><br>    <span class="hljs-keyword">let</span> m = j + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (k == text[m]) &#123;<br>      m++;<br>    &#125;<br>    curr += m - j - <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">if</span> (curr &lt; count.<span class="hljs-title function_">get</span>(k)) &#123;<br>      curr += <span class="hljs-number">1</span>;<br>    &#125;<br>    max = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(curr, max);<br>  &#125;<br>  <span class="hljs-keyword">return</span> max;<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>MEDIUM</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>2451. 差值数组不同的字符串-EASY</title>
     <link href="/xiaolanchong.githug.io/2023/06/03/subject/2451.%20%E5%B7%AE%E5%80%BC%E6%95%B0%E7%BB%84%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2-EASY/"/>
     <url>/xiaolanchong.githug.io/2023/06/03/subject/2451.%20%E5%B7%AE%E5%80%BC%E6%95%B0%E7%BB%84%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2-EASY/</url>
