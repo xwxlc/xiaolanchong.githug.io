@@ -4,6 +4,206 @@
   
   
   <entry>
+    <title>2465. 不同的平均值数目-EASY</title>
+    <link href="/xiaolanchong.githug.io/2023/06/23/subject/2465.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B9%B3%E5%9D%87%E5%80%BC%E6%95%B0%E7%9B%AE-EASY/"/>
+    <url>/xiaolanchong.githug.io/2023/06/23/subject/2465.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B9%B3%E5%9D%87%E5%80%BC%E6%95%B0%E7%9B%AE-EASY/</url>
+    
+    <content type="html"><![CDATA[<h1 id="不同的平均值数目-EASY"><a href="#不同的平均值数目-EASY" class="headerlink" title="不同的平均值数目-EASY"></a>不同的平均值数目-EASY</h1><p><a href="https://leetcode.cn/problems/apply-operations-to-an-array/">力扣题目</a></p><h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> applyOperations = <span class="hljs-keyword">function</span> (<span class="hljs-params">nums</span>) &#123;<br>  <span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; nums.<span class="hljs-property">length</span>; i++) &#123;<br>    <span class="hljs-keyword">if</span> (nums[i] === nums[i + <span class="hljs-number">1</span>]) &#123;<br>      nums[i] *= <span class="hljs-number">2</span>;<br>      nums[i + <span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (nums[i] != <span class="hljs-number">0</span>) &#123;<br>      [nums[i], nums[j]] = [nums[j], nums[i]];<br>      j++;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> nums;<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>EASY</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>2460. 对数组执行操作-EASY</title>
+    <link href="/xiaolanchong.githug.io/2023/06/23/subject/2460.%20%E5%AF%B9%E6%95%B0%E7%BB%84%E6%89%A7%E8%A1%8C%E6%93%8D%E4%BD%9C-EASY/"/>
+    <url>/xiaolanchong.githug.io/2023/06/23/subject/2460.%20%E5%AF%B9%E6%95%B0%E7%BB%84%E6%89%A7%E8%A1%8C%E6%93%8D%E4%BD%9C-EASY/</url>
+    
+    <content type="html"><![CDATA[<h1 id="对数组执行操作-EASY"><a href="#对数组执行操作-EASY" class="headerlink" title="对数组执行操作-EASY"></a>对数组执行操作-EASY</h1><p><a href="https://leetcode.cn/problems/apply-operations-to-an-array/">力扣题目</a></p><h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> applyOperations = <span class="hljs-keyword">function</span> (<span class="hljs-params">nums</span>) &#123;<br>  <span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; nums.<span class="hljs-property">length</span>; i++) &#123;<br>    <span class="hljs-keyword">if</span> (nums[i] === nums[i + <span class="hljs-number">1</span>]) &#123;<br>      nums[i] *= <span class="hljs-number">2</span>;<br>      nums[i + <span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (nums[i] != <span class="hljs-number">0</span>) &#123;<br>      [nums[i], nums[j]] = [nums[j], nums[i]];<br>      j++;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> nums;<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>EASY</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>2352. 相等行列对-MEDIUM</title>
+    <link href="/xiaolanchong.githug.io/2023/06/23/subject/2352.%20%E7%9B%B8%E7%AD%89%E8%A1%8C%E5%88%97%E5%AF%B9-MEDIUM/"/>
+    <url>/xiaolanchong.githug.io/2023/06/23/subject/2352.%20%E7%9B%B8%E7%AD%89%E8%A1%8C%E5%88%97%E5%AF%B9-MEDIUM/</url>
+    
+    <content type="html"><![CDATA[<h1 id="相等行列对-MEDIUM"><a href="#相等行列对-MEDIUM" class="headerlink" title="相等行列对-MEDIUM"></a>相等行列对-MEDIUM</h1><p><a href="https://leetcode.cn/problems/equal-row-and-column-pairs/">力扣题目</a></p><h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> equalPairs = <span class="hljs-keyword">function</span> (<span class="hljs-params">grid</span>) &#123;<br>  <span class="hljs-keyword">let</span> res = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">const</span> n = grid.<span class="hljs-property">length</span>;<br>  <span class="hljs-keyword">const</span> map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Map</span>();<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>    <span class="hljs-keyword">const</span> val = grid[i].<span class="hljs-title function_">toString</span>();<br>    map.<span class="hljs-title function_">set</span>(val, (map.<span class="hljs-title function_">get</span>(val) || <span class="hljs-number">0</span>) + <span class="hljs-number">1</span>);<br>  &#125;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>    <span class="hljs-keyword">var</span> val = [];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;<br>      val.<span class="hljs-title function_">push</span>(grid[j][i]);<br>    &#125;<br>    res += map.<span class="hljs-title function_">get</span>(val.<span class="hljs-title function_">toString</span>()) || <span class="hljs-number">0</span>;<br>  &#125;<br>  <span class="hljs-keyword">return</span> res;<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>MEDIUM</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>2611. 老鼠和奶酪-MEDIUM</title>
+    <link href="/xiaolanchong.githug.io/2023/06/23/subject/2611.%20%E8%80%81%E9%BC%A0%E5%92%8C%E5%A5%B6%E9%85%AA-MEDIUM/"/>
+    <url>/xiaolanchong.githug.io/2023/06/23/subject/2611.%20%E8%80%81%E9%BC%A0%E5%92%8C%E5%A5%B6%E9%85%AA-MEDIUM/</url>
+    
+    <content type="html"><![CDATA[<h1 id="老鼠和奶酪-MEDIUM"><a href="#老鼠和奶酪-MEDIUM" class="headerlink" title="老鼠和奶酪-MEDIUM"></a>老鼠和奶酪-MEDIUM</h1><p><a href="https://leetcode.cn/problems/mice-and-cheese/">力扣题目</a></p><h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> miceAndCheese = <span class="hljs-keyword">function</span> (<span class="hljs-params">reward1, reward2, k</span>) &#123;<br>  <span class="hljs-keyword">const</span> n = reward1.<span class="hljs-property">length</span>;<br>  <span class="hljs-keyword">var</span> ans = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">var</span> diff = [];<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>    ans += reward2[i];<br>    diff.<span class="hljs-title function_">push</span>(reward1[i] - reward2[i]);<br>  &#125;<br>  diff = diff.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> b - a);<br>  <br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; k; i++) &#123;<br>    ans += diff[i];<br>  &#125;<br>  <span class="hljs-keyword">return</span> ans;<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>MEDIUM</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>2496. 数组中字符串的最大值-EASY</title>
+    <link href="/xiaolanchong.githug.io/2023/06/23/subject/2496.%20%E6%95%B0%E7%BB%84%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC-EASY/"/>
+    <url>/xiaolanchong.githug.io/2023/06/23/subject/2496.%20%E6%95%B0%E7%BB%84%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC-EASY/</url>
+    
+    <content type="html"><![CDATA[<h1 id="数组中字符串的最大值-EASY"><a href="#数组中字符串的最大值-EASY" class="headerlink" title="数组中字符串的最大值-EASY"></a>数组中字符串的最大值-EASY</h1><p><a href="https://leetcode.cn/problems/maximum-value-of-a-string-in-an-array/">力扣题目</a></p><h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> maximumValue = <span class="hljs-keyword">function</span> (<span class="hljs-params">strs</span>) &#123;<br>  <span class="hljs-keyword">let</span> res = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; strs.<span class="hljs-property">length</span>; i++) &#123;<br>    <span class="hljs-keyword">const</span> str = strs[i];<br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isNaN</span>(<span class="hljs-title class_">Number</span>(str))) &#123;<br>      res = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(res, str.<span class="hljs-property">length</span>);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      res = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(res, <span class="hljs-title class_">Number</span>(str));<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> res;<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>EASY</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>29. 两数相除-MEDIUM</title>
+    <link href="/xiaolanchong.githug.io/2023/06/23/subject/29.%20%E4%B8%A4%E6%95%B0%E7%9B%B8%E9%99%A4-MEDIUM/"/>
+    <url>/xiaolanchong.githug.io/2023/06/23/subject/29.%20%E4%B8%A4%E6%95%B0%E7%9B%B8%E9%99%A4-MEDIUM/</url>
+    
+    <content type="html"><![CDATA[<h1 id="两数相除-MEDIUM"><a href="#两数相除-MEDIUM" class="headerlink" title="两数相除-MEDIUM"></a>两数相除-MEDIUM</h1><p><a href="https://leetcode.cn/problems/divide-two-integers/">力扣题目</a></p><h1 id="方法一-迭代法"><a href="#方法一-迭代法" class="headerlink" title="方法一 迭代法"></a>方法一 迭代法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> divide = <span class="hljs-keyword">function</span> (<span class="hljs-params">dividend, divisor</span>) &#123;<br>  <span class="hljs-keyword">const</span> <span class="hljs-variable constant_">MAX</span> = <span class="hljs-number">2147483647</span>; <span class="hljs-comment">// 2^31-1</span><br>  <span class="hljs-keyword">const</span> <span class="hljs-variable constant_">MIN</span> = -<span class="hljs-number">2147483648</span>; <span class="hljs-comment">// -2^31</span><br>  <span class="hljs-keyword">if</span> (dividend == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">if</span> (divisor == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>  <span class="hljs-keyword">if</span> (divisor == <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> dividend;<br>  <span class="hljs-keyword">if</span> (divisor == -<span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> dividend &lt;= <span class="hljs-variable constant_">MIN</span> ? <span class="hljs-variable constant_">MAX</span> : -dividend;<br>  <span class="hljs-keyword">let</span> minus = <span class="hljs-literal">false</span>; <span class="hljs-comment">// 是否是负数</span><br>  <span class="hljs-comment">// dividend, divisor都处理成负数计算</span><br>  <span class="hljs-keyword">if</span> (dividend &gt; <span class="hljs-number">0</span>) &#123;<br>    dividend = -dividend;<br>    minus = !minus;<br>  &#125;<br>  <span class="hljs-keyword">if</span> (divisor &gt; <span class="hljs-number">0</span>) &#123;<br>    divisor = -divisor;<br>    minus = !minus;<br>  &#125;<br>  <span class="hljs-keyword">let</span> quotient = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">while</span> (dividend &lt;= divisor) &#123;<br>    dividend -= divisor;<br>    quotient++;<br>  &#125;<br>  <span class="hljs-keyword">return</span> minus ? -quotient : quotient;<br>&#125;;<br></code></pre></td></tr></table></figure><h1 id="方法二-类二分"><a href="#方法二-类二分" class="headerlink" title="方法二 类二分"></a>方法二 类二分</h1><h2 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h2><blockquote><p>与迭代法的区别就在于优化迭代的步数</p></blockquote><h2 id="完整代码-1"><a href="#完整代码-1" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> divide = <span class="hljs-keyword">function</span> (<span class="hljs-params">dividend, divisor</span>) &#123;<br>  <span class="hljs-keyword">const</span> <span class="hljs-variable constant_">MAX</span> = <span class="hljs-number">2147483647</span>; <span class="hljs-comment">// 2^31-1</span><br>  <span class="hljs-keyword">const</span> <span class="hljs-variable constant_">MIN</span> = -<span class="hljs-number">2147483648</span>; <span class="hljs-comment">// -2^31</span><br>  <span class="hljs-keyword">if</span> (dividend == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">if</span> (divisor == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>  <span class="hljs-keyword">if</span> (divisor == <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> dividend;<br>  <span class="hljs-keyword">if</span> (divisor == -<span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> dividend &lt;= <span class="hljs-variable constant_">MIN</span> ? <span class="hljs-variable constant_">MAX</span> : -dividend;<br>  <span class="hljs-keyword">let</span> minus = <span class="hljs-literal">false</span>; <span class="hljs-comment">// 是否是负数</span><br>  <span class="hljs-comment">// dividend, divisor都处理成负数计算</span><br>  <span class="hljs-keyword">if</span> (dividend &gt; <span class="hljs-number">0</span>) &#123;<br>    dividend = -dividend;<br>    minus = !minus;<br>  &#125;<br>  <span class="hljs-keyword">if</span> (divisor &gt; <span class="hljs-number">0</span>) &#123;<br>    divisor = -divisor;<br>    minus = !minus;<br>  &#125;<br>  <span class="hljs-keyword">let</span> quotient = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">while</span> (dividend &lt;= divisor) &#123;<br>    <span class="hljs-keyword">let</span> tempQuotient = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">let</span> tempDivisor = divisor;<br>    <span class="hljs-keyword">while</span> (dividend &lt;= tempDivisor + tempDivisor) &#123;<br>      tempDivisor += tempDivisor;<br>      tempQuotient += tempQuotient;<br>    &#125;<br>    dividend -= tempDivisor;<br>    quotient += tempQuotient;<br>  &#125;<br>  <span class="hljs-keyword">return</span> minus ? -quotient : quotient;<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>MEDIUM</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>31. 下一个排列-MEDIUM</title>
+    <link href="/xiaolanchong.githug.io/2023/06/23/subject/31.%20%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%8E%92%E5%88%97-MEDIUM/"/>
+    <url>/xiaolanchong.githug.io/2023/06/23/subject/31.%20%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%8E%92%E5%88%97-MEDIUM/</url>
+    
+    <content type="html"><![CDATA[<h1 id="下一个排列-MEDIUM"><a href="#下一个排列-MEDIUM" class="headerlink" title="下一个排列-MEDIUM"></a>下一个排列-MEDIUM</h1><p><a href="https://leetcode.cn/problems/next-permutation/">力扣题目</a></p><h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><ul><li>下一个排列 是指其整数的下一个字典序更大的排列，所以本题就是寻找下一个最下小排序</li><li>nums[i+1]&gt;nums[i] 寻找到i的位置</li><li>在[i, len-1]中选择最小的&gt;nums[i]的数并交互得到新的大于nums的排序</li><li>然后[i+1,len-1]的范围进行升序得到最小大于nums的排序</li></ul><h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> nextPermutation = <span class="hljs-keyword">function</span> (<span class="hljs-params">nums</span>) &#123;<br>  <span class="hljs-keyword">let</span> len = nums.<span class="hljs-property">length</span>;<br>  <span class="hljs-keyword">let</span> i = len - <span class="hljs-number">2</span>;<br>  <span class="hljs-keyword">while</span> (i &gt;= <span class="hljs-number">0</span> &amp;&amp; nums[i] &gt;= nums[i + <span class="hljs-number">1</span>]) &#123;<br>    i--;<br>  &#125;<br>  <span class="hljs-keyword">if</span> (i &gt;= <span class="hljs-number">0</span>) &#123;<br>    <span class="hljs-keyword">let</span> j = len - <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (j &gt;= <span class="hljs-number">0</span> &amp;&amp; nums[i] &gt;= nums[j]) &#123;<br>      j--;<br>    &#125;<br>    [nums[i], nums[j]] = [nums[j], nums[i]];<br>  &#125;<br><br>  <span class="hljs-keyword">let</span> l = i + <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">let</span> r = len - <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">while</span> (l &lt; r) &#123;<br>    <span class="hljs-comment">// 由于[l,r]范围内本身就是降序的所以只需要进行翻转就可以得到升序数组</span><br>    [nums[l], nums[r]] = [nums[r], nums[l]];<br>    l++;<br>    r--;<br>  &#125;<br><br>  <span class="hljs-keyword">return</span> nums;<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>MEDIUM</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>32. 最长有效括号-HEAD</title>
+    <link href="/xiaolanchong.githug.io/2023/06/23/subject/32.%20%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7-HEAD/"/>
+    <url>/xiaolanchong.githug.io/2023/06/23/subject/32.%20%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7-HEAD/</url>
+    
+    <content type="html"><![CDATA[<h1 id="最长有效括号-HEAD"><a href="#最长有效括号-HEAD" class="headerlink" title="最长有效括号-HEAD"></a>最长有效括号-HEAD</h1><p><a href="https://leetcode.cn/problems/longest-valid-parentheses/">力扣题目</a></p><h1 id="方法一-栈"><a href="#方法一-栈" class="headerlink" title="方法一 栈"></a>方法一 栈</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><ul><li>为什么起始栈是[-1] 主要是方便计算<blockquote><p>例如“()”  i-stack[stack.length-1] &#x3D;&gt; i-(-1) &#x3D;&#x3D; 2;</p></blockquote></li></ul><h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> longestValidParentheses = <span class="hljs-keyword">function</span> (<span class="hljs-params">s</span>) &#123;<br>  <span class="hljs-keyword">const</span> stack = [-<span class="hljs-number">1</span>];<br>  <span class="hljs-keyword">let</span> max = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; s.<span class="hljs-property">length</span>; i++) &#123;<br>    <span class="hljs-keyword">if</span> (s[i] == <span class="hljs-string">&#x27;(&#x27;</span>) &#123;<br>      stack.<span class="hljs-title function_">push</span>(i);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      stack.<span class="hljs-title function_">pop</span>();<br>      <span class="hljs-keyword">if</span> (stack.<span class="hljs-property">length</span>) &#123;<br>        max = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(max, i - stack[stack.<span class="hljs-property">length</span> - <span class="hljs-number">1</span>]);<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>        stack.<span class="hljs-title function_">push</span>(i);<br>      &#125;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> max;<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>HARD</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>1156. 单字符重复子串的最大长度-MEDIUM</title>
     <link href="/xiaolanchong.githug.io/2023/06/03/subject/1156.%20%E5%8D%95%E5%AD%97%E7%AC%A6%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E9%95%BF%E5%BA%A6-MEDIUM/"/>
     <url>/xiaolanchong.githug.io/2023/06/03/subject/1156.%20%E5%8D%95%E5%AD%97%E7%AC%A6%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E9%95%BF%E5%BA%A6-MEDIUM/</url>
