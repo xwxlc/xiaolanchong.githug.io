@@ -77,7 +77,7 @@ links:
         link: 'https://github.com/xwxlc',
         avatar: '/images/xiaolanchong.jpeg'
       }
-      {
+    - {
         title: '小懒虫&',
         intro: '实用的前端效果',
         link: 'https://xwxlc.github.io/xiaolanchong.effect.io/',
