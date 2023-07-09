@@ -16,22 +16,22 @@
   <meta name="author" content="xiaolanchong">
   <meta name="keywords" content="小懒虫&amp; 博客">
   
-    <meta name="description" content="跟随系统主题12345678910111213141516171819const media &#x3D; window.matchMedia(&amp;#x27;(prefers-color-scheme:light)&amp;#x27;);&#x2F;&#x2F; or&#x2F;&#x2F; const media &#x3D; window.matchMedia(&amp;#x27;(prefers-color-scheme:dark)&amp;#x27;)&#x2F;&#x2F; 判断是否为亮主题">
+    <meta name="description" content="两数之和 II - 输入有序数组-MEDIUM力扣题目 方法一 哈希表解题思路完整代码123456789101112var twoSum &#x3D; function (numbers, target) &amp;#123;  const map &#x3D; new Map();  for (let i &#x3D; 0; i &lt; numbers.length; i++) &amp;#123;    const result &#x3D; t">
 <meta property="og:type" content="article">
-<meta property="og:title" content="跟随系统主题">
-<meta property="og:url" content="https://xwxlc.github.io/xiaolanchong.githug.io/2023/07/02/%E8%B7%9F%E9%9A%8F%E7%B3%BB%E7%BB%9F%E4%B8%BB%E9%A2%98/index.html">
+<meta property="og:title" content="167. 两数之和 II - 输入有序数组-MEDIUM">
+<meta property="og:url" content="https://xwxlc.github.io/xiaolanchong.githug.io/2023/07/09/subject/167.%20%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%20II%20-%20%E8%BE%93%E5%85%A5%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84-MEDIUM/index.html">
 <meta property="og:site_name" content="小懒虫&amp;">
-<meta property="og:description" content="跟随系统主题12345678910111213141516171819const media &#x3D; window.matchMedia(&amp;#x27;(prefers-color-scheme:light)&amp;#x27;);&#x2F;&#x2F; or&#x2F;&#x2F; const media &#x3D; window.matchMedia(&amp;#x27;(prefers-color-scheme:dark)&amp;#x27;)&#x2F;&#x2F; 判断是否为亮主题">
+<meta property="og:description" content="两数之和 II - 输入有序数组-MEDIUM力扣题目 方法一 哈希表解题思路完整代码123456789101112var twoSum &#x3D; function (numbers, target) &amp;#123;  const map &#x3D; new Map();  for (let i &#x3D; 0; i &lt; numbers.length; i++) &amp;#123;    const result &#x3D; t">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-07-02T11:09:25.000Z">
-<meta property="article:modified_time" content="2023-07-02T11:09:25.000Z">
+<meta property="article:published_time" content="2023-07-09T06:30:42.000Z">
+<meta property="article:modified_time" content="2023-07-09T06:30:42.000Z">
 <meta property="article:author" content="xiaolanchong">
-<meta property="article:tag" content="小懒虫&amp; 博客">
+<meta property="article:tag" content="MEDIUM">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>跟随系统主题 - 小懒虫&amp;</title>
+  <title>167. 两数之和 II - 输入有序数组-MEDIUM - 小懒虫&amp;</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -227,7 +227,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="跟随系统主题"></span>
+            <span id="subtitle" data-typed-text="167. 两数之和 II - 输入有序数组-MEDIUM"></span>
           
         </div>
 
@@ -244,7 +244,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          399 字
+          1k 字
         
       </span>
     
@@ -256,7 +256,7 @@
         
         
           <!-- compatible with older versions-->
-          4 分钟
+          9 分钟
         
       </span>
     
@@ -302,12 +302,17 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">跟随系统主题</h1>
+            <h1 style="display: none">167. 两数之和 II - 输入有序数组-MEDIUM</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="跟随系统主题"><a href="#跟随系统主题" class="headerlink" title="跟随系统主题"></a>跟随系统主题</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> media = <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">matchMedia</span>(<span class="hljs-string">&#x27;(prefers-color-scheme:light)&#x27;</span>);<br><span class="hljs-comment">// or</span><br><span class="hljs-comment">// const media = window.matchMedia(&#x27;(prefers-color-scheme:dark)&#x27;)</span><br><br><span class="hljs-comment">// 判断是否为亮主题</span><br><span class="hljs-keyword">if</span> (media.<span class="hljs-property">matches</span>) &#123;<br>  <span class="hljs-comment">// 匹配到暗主题</span><br>&#125; <span class="hljs-keyword">else</span> &#123;<br>  <span class="hljs-comment">// 没有匹配到暗主题</span><br>&#125;<br><br><span class="hljs-comment">// 上面操作只会在页面加载时才会生效，因此，需要给media添加事件监听器</span><br>media.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;change&#x27;</span>,<span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">if</span> (e.<span class="hljs-property">matches</span>) &#123;<br>    <span class="hljs-comment">//   </span><br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-comment">// </span><br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+                <h1 id="两数之和-II-输入有序数组-MEDIUM"><a href="#两数之和-II-输入有序数组-MEDIUM" class="headerlink" title="两数之和 II - 输入有序数组-MEDIUM"></a>两数之和 II - 输入有序数组-MEDIUM</h1><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/">力扣题目</a></p>
+<h1 id="方法一-哈希表"><a href="#方法一-哈希表" class="headerlink" title="方法一 哈希表"></a>方法一 哈希表</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> twoSum = <span class="hljs-keyword">function</span> (<span class="hljs-params">numbers, target</span>) &#123;<br>  <span class="hljs-keyword">const</span> map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Map</span>();<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; numbers.<span class="hljs-property">length</span>; i++) &#123;<br>    <span class="hljs-keyword">const</span> result = target - numbers[i];<br>    <span class="hljs-keyword">if</span> (map.<span class="hljs-title function_">has</span>(result)) &#123;<br>      <span class="hljs-keyword">return</span> [map.<span class="hljs-title function_">get</span>(result) + <span class="hljs-number">1</span>, i + <span class="hljs-number">1</span>];<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      map.<span class="hljs-title function_">set</span>(numbers[i], i);<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> [-<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>];<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h1 id="方法二-二分法"><a href="#方法二-二分法" class="headerlink" title="方法二 二分法"></a>方法二 二分法</h1><h2 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="完整代码-1"><a href="#完整代码-1" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> twoSum = <span class="hljs-keyword">function</span> (<span class="hljs-params">numbers, target</span>) &#123;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; numbers.<span class="hljs-property">length</span>; i++) &#123;<br>    <span class="hljs-keyword">let</span> l = i + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">let</span> r = numbers.<span class="hljs-property">length</span> - <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (l &lt;= r) &#123;<br>      <span class="hljs-keyword">const</span> mid = <span class="hljs-built_in">parseInt</span>((r - l) / <span class="hljs-number">2</span>) + l;<br>      <span class="hljs-keyword">const</span> sum = numbers[i] + numbers[mid];<br>      <span class="hljs-keyword">if</span> (sum == target) &#123;<br>        <span class="hljs-keyword">return</span> [i + <span class="hljs-number">1</span>, mid + <span class="hljs-number">1</span>];<br>      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (sum &gt; target) &#123;<br>        r = mid - <span class="hljs-number">1</span>;<br>      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (sum &lt; target) &#123;<br>        l = mid + <span class="hljs-number">1</span>;<br>      &#125;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> [-<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>];<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h1 id="方法三-双指针"><a href="#方法三-双指针" class="headerlink" title="方法三 双指针"></a>方法三 双指针</h1><h2 id="解题思路-2"><a href="#解题思路-2" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="完整代码-2"><a href="#完整代码-2" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> twoSum = <span class="hljs-keyword">function</span> (<span class="hljs-params">numbers, target</span>) &#123;<br>  <span class="hljs-keyword">let</span> l = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">let</span> r = numbers.<span class="hljs-property">length</span> - <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">while</span> (l &lt; r) &#123;<br>    <span class="hljs-keyword">const</span> sum = numbers[l] + numbers[r];<br>    <span class="hljs-keyword">if</span> (sum == target) &#123;<br>      <span class="hljs-keyword">return</span> [l + <span class="hljs-number">1</span>, r + <span class="hljs-number">1</span>];<br>    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (sum &lt; target) &#123;<br>      l++;<br>    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (sum &gt; target) &#123;<br>      r--;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> [-<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>];<br>&#125;;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -325,7 +330,7 @@
     
       <span class="category-chain">
         
-  <a href="/xiaolanchong.githug.io/categories/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
+  <a href="/xiaolanchong.githug.io/categories/%E7%AE%97%E6%B3%95%E9%A2%98/" class="category-chain-item">算法题</a>
   
   
 
@@ -337,6 +342,13 @@
     </div>
   
   
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/xiaolanchong.githug.io/tags/MEDIUM/">#MEDIUM</a>
+      
+    </div>
+  
 </div>
 
 
@@ -345,8 +357,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>跟随系统主题</div>
-      <div>https://xwxlc.github.io/xiaolanchong.githug.io/2023/07/02/跟随系统主题/</div>
+      <div>167. 两数之和 II - 输入有序数组-MEDIUM</div>
+      <div>https://xwxlc.github.io/xiaolanchong.githug.io/2023/07/09/subject/167. 两数之和 II - 输入有序数组-MEDIUM/</div>
     </div>
     <div class="license-meta">
       
@@ -358,7 +370,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年7月2日</div>
+          <div>2023年7月9日</div>
         </div>
       
       
@@ -390,18 +402,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/xiaolanchong.githug.io/2023/07/09/subject/15.%20%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C-MEDIUM/" title="15. 三数之和-MEDIUM">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">15. 三数之和-MEDIUM</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/xiaolanchong.githug.io/2023/06/23/subject/2465.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B9%B3%E5%9D%87%E5%80%BC%E6%95%B0%E7%9B%AE-EASY/" title="2465. 不同的平均值数目-EASY">
-                        <span class="hidden-mobile">2465. 不同的平均值数目-EASY</span>
+                      <a href="/xiaolanchong.githug.io/2023/07/09/subject/15.%20%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C-MEDIUM/" title="15. 三数之和-MEDIUM">
+                        <span class="hidden-mobile">15. 三数之和-MEDIUM</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

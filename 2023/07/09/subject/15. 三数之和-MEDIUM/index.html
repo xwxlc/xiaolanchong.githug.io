@@ -16,22 +16,22 @@
   <meta name="author" content="xiaolanchong">
   <meta name="keywords" content="小懒虫&amp; 博客">
   
-    <meta name="description" content="跟随系统主题12345678910111213141516171819const media &#x3D; window.matchMedia(&amp;#x27;(prefers-color-scheme:light)&amp;#x27;);&#x2F;&#x2F; or&#x2F;&#x2F; const media &#x3D; window.matchMedia(&amp;#x27;(prefers-color-scheme:dark)&amp;#x27;)&#x2F;&#x2F; 判断是否为亮主题">
+    <meta name="description" content="三数之和-MEDIUM力扣题目 方法一解题思路 len &lt; 3 肯定不满足条件 nums 从小到大排序,如果nums[0] &gt; 0 肯定不存在满足的条件 但 nums[i] &#x3D;&#x3D; nums[i-1]，会导致结果重复，所有需要跳过 当 sum&#x3D;&#x3D;0 时保存结果 同理 如果nums[L] &#x3D;&#x3D; nums[L++] 或 nums[R">
 <meta property="og:type" content="article">
-<meta property="og:title" content="跟随系统主题">
-<meta property="og:url" content="https://xwxlc.github.io/xiaolanchong.githug.io/2023/07/02/%E8%B7%9F%E9%9A%8F%E7%B3%BB%E7%BB%9F%E4%B8%BB%E9%A2%98/index.html">
+<meta property="og:title" content="15. 三数之和-MEDIUM">
+<meta property="og:url" content="https://xwxlc.github.io/xiaolanchong.githug.io/2023/07/09/subject/15.%20%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C-MEDIUM/index.html">
 <meta property="og:site_name" content="小懒虫&amp;">
-<meta property="og:description" content="跟随系统主题12345678910111213141516171819const media &#x3D; window.matchMedia(&amp;#x27;(prefers-color-scheme:light)&amp;#x27;);&#x2F;&#x2F; or&#x2F;&#x2F; const media &#x3D; window.matchMedia(&amp;#x27;(prefers-color-scheme:dark)&amp;#x27;)&#x2F;&#x2F; 判断是否为亮主题">
+<meta property="og:description" content="三数之和-MEDIUM力扣题目 方法一解题思路 len &lt; 3 肯定不满足条件 nums 从小到大排序,如果nums[0] &gt; 0 肯定不存在满足的条件 但 nums[i] &#x3D;&#x3D; nums[i-1]，会导致结果重复，所有需要跳过 当 sum&#x3D;&#x3D;0 时保存结果 同理 如果nums[L] &#x3D;&#x3D; nums[L++] 或 nums[R">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-07-02T11:09:25.000Z">
-<meta property="article:modified_time" content="2023-07-02T11:09:25.000Z">
+<meta property="article:published_time" content="2023-07-09T05:39:29.000Z">
+<meta property="article:modified_time" content="2023-07-09T05:39:29.000Z">
 <meta property="article:author" content="xiaolanchong">
-<meta property="article:tag" content="小懒虫&amp; 博客">
+<meta property="article:tag" content="MEDIUM">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>跟随系统主题 - 小懒虫&amp;</title>
+  <title>15. 三数之和-MEDIUM - 小懒虫&amp;</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -227,7 +227,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="跟随系统主题"></span>
+            <span id="subtitle" data-typed-text="15. 三数之和-MEDIUM"></span>
           
         </div>
 
@@ -244,7 +244,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          399 字
+          804 字
         
       </span>
     
@@ -256,7 +256,7 @@
         
         
           <!-- compatible with older versions-->
-          4 分钟
+          7 分钟
         
       </span>
     
@@ -302,12 +302,21 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">跟随系统主题</h1>
+            <h1 style="display: none">15. 三数之和-MEDIUM</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="跟随系统主题"><a href="#跟随系统主题" class="headerlink" title="跟随系统主题"></a>跟随系统主题</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> media = <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">matchMedia</span>(<span class="hljs-string">&#x27;(prefers-color-scheme:light)&#x27;</span>);<br><span class="hljs-comment">// or</span><br><span class="hljs-comment">// const media = window.matchMedia(&#x27;(prefers-color-scheme:dark)&#x27;)</span><br><br><span class="hljs-comment">// 判断是否为亮主题</span><br><span class="hljs-keyword">if</span> (media.<span class="hljs-property">matches</span>) &#123;<br>  <span class="hljs-comment">// 匹配到暗主题</span><br>&#125; <span class="hljs-keyword">else</span> &#123;<br>  <span class="hljs-comment">// 没有匹配到暗主题</span><br>&#125;<br><br><span class="hljs-comment">// 上面操作只会在页面加载时才会生效，因此，需要给media添加事件监听器</span><br>media.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;change&#x27;</span>,<span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">if</span> (e.<span class="hljs-property">matches</span>) &#123;<br>    <span class="hljs-comment">//   </span><br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-comment">// </span><br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+                <h1 id="三数之和-MEDIUM"><a href="#三数之和-MEDIUM" class="headerlink" title="三数之和-MEDIUM"></a>三数之和-MEDIUM</h1><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/3sum/">力扣题目</a></p>
+<h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><ol>
+<li>len &lt; 3 肯定不满足条件</li>
+<li>nums 从小到大排序,如果nums[0] &gt; 0 肯定不存在满足的条件</li>
+<li>但 nums[i] &#x3D;&#x3D; nums[i-1]，会导致结果重复，所有需要跳过</li>
+<li>当 sum&#x3D;&#x3D;0 时保存结果</li>
+<li>同理 如果nums[L] &#x3D;&#x3D; nums[L++] 或 nums[R] &#x3D;&#x3D; nums[R-1] 都会导致结果重复，所以都需要跳过处理</li>
+</ol>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> threeSum = <span class="hljs-keyword">function</span> (<span class="hljs-params">nums</span>) &#123;<br>  <span class="hljs-keyword">let</span> res = [];<br>  <span class="hljs-keyword">const</span> len = nums?.<span class="hljs-property">length</span> || <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">if</span> (len &lt; <span class="hljs-number">3</span>) <span class="hljs-keyword">return</span> res;<br>  nums.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a - b);<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) &#123;<br>    <span class="hljs-keyword">if</span> (nums[i] &gt; <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> res;<br>    <span class="hljs-keyword">if</span> (i &gt; <span class="hljs-number">0</span> &amp;&amp; nums[i] == nums[i - <span class="hljs-number">1</span>]) <span class="hljs-keyword">continue</span>;<br>    <span class="hljs-keyword">let</span> L = i + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">let</span> R = len - <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (L &lt; R) &#123;<br>      <span class="hljs-keyword">const</span> sum = nums[i] + nums[L] + nums[R];<br>      <span class="hljs-keyword">if</span> (sum == <span class="hljs-number">0</span>) &#123;<br>        res.<span class="hljs-title function_">push</span>([nums[i], nums[L], nums[R]]);<br>        <span class="hljs-keyword">while</span> (L &lt; R &amp;&amp; nums[L] == nums[L + <span class="hljs-number">1</span>]) L++;<br>        <span class="hljs-keyword">while</span> (L &lt; R &amp;&amp; nums[R] == nums[R - <span class="hljs-number">1</span>]) R--;<br>        L++;<br>        R--;<br>      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (sum &lt; <span class="hljs-number">0</span>) &#123;<br>        L++;<br>      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (sum &gt; <span class="hljs-number">0</span>) &#123;<br>        R--;<br>      &#125;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> res;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
                 
               </div>
             
@@ -325,7 +334,7 @@
     
       <span class="category-chain">
         
-  <a href="/xiaolanchong.githug.io/categories/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
+  <a href="/xiaolanchong.githug.io/categories/%E7%AE%97%E6%B3%95%E9%A2%98/" class="category-chain-item">算法题</a>
   
   
 
@@ -337,6 +346,13 @@
     </div>
   
   
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/xiaolanchong.githug.io/tags/MEDIUM/">#MEDIUM</a>
+      
+    </div>
+  
 </div>
 
 
@@ -345,8 +361,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>跟随系统主题</div>
-      <div>https://xwxlc.github.io/xiaolanchong.githug.io/2023/07/02/跟随系统主题/</div>
+      <div>15. 三数之和-MEDIUM</div>
+      <div>https://xwxlc.github.io/xiaolanchong.githug.io/2023/07/09/subject/15. 三数之和-MEDIUM/</div>
     </div>
     <div class="license-meta">
       
@@ -358,7 +374,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年7月2日</div>
+          <div>2023年7月9日</div>
         </div>
       
       
@@ -390,9 +406,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/xiaolanchong.githug.io/2023/07/09/subject/15.%20%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C-MEDIUM/" title="15. 三数之和-MEDIUM">
+                      <a href="/xiaolanchong.githug.io/2023/07/09/subject/167.%20%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%20II%20-%20%E8%BE%93%E5%85%A5%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84-MEDIUM/" title="167. 两数之和 II - 输入有序数组-MEDIUM">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">15. 三数之和-MEDIUM</span>
+                        <span class="hidden-mobile">167. 两数之和 II - 输入有序数组-MEDIUM</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -400,8 +416,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/xiaolanchong.githug.io/2023/06/23/subject/2465.%20%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B9%B3%E5%9D%87%E5%80%BC%E6%95%B0%E7%9B%AE-EASY/" title="2465. 不同的平均值数目-EASY">
-                        <span class="hidden-mobile">2465. 不同的平均值数目-EASY</span>
+                      <a href="/xiaolanchong.githug.io/2023/07/02/%E8%B7%9F%E9%9A%8F%E7%B3%BB%E7%BB%9F%E4%B8%BB%E9%A2%98/" title="跟随系统主题">
+                        <span class="hidden-mobile">跟随系统主题</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
