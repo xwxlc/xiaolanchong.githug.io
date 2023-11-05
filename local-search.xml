@@ -13,26 +13,32 @@
     
     <categories>
       
-      <category>currentColor</category>
-      
-      <category>isolation</category>
-      
-      <category>scroll-padding-top</category>
-      
-      <category>font-variant</category>
-      
-      <category>caret-color</category>
-      
-      <category>::selection</category>
-      
-      <category>user-select</category>
-      
-      <category>::first-letter</category>
-      
-      <category>-webkit-box-reflect</category>
+      <category>CSS3</category>
       
     </categories>
     
+    
+    <tags>
+      
+      <tag>currentColor</tag>
+      
+      <tag>isolation</tag>
+      
+      <tag>scroll-padding-top</tag>
+      
+      <tag>font-variant</tag>
+      
+      <tag>caret-color</tag>
+      
+      <tag>::selection</tag>
+      
+      <tag>user-select</tag>
+      
+      <tag>::first-letter</tag>
+      
+      <tag>-webkit-box-reflect</tag>
+      
+    </tags>
     
   </entry>
   
